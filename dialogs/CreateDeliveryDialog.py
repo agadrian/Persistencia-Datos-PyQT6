@@ -21,6 +21,7 @@ class DeliveryDialog(QDialog):
 
     # Insertar repartidor
     def insert_new_delivery(self):
+        conn = None
         try:
             nif = self.lineEdit_NIF.text()
             name = self.lineEdit_name.text()
@@ -50,5 +51,6 @@ class DeliveryDialog(QDialog):
             error_msg = str(e)
             QMessageBox.warning(self, "Error", error_msg)
         finally:
-            close_db_connection(conn)
+            if conn is not None: 
+                close_db_connection(conn)
     

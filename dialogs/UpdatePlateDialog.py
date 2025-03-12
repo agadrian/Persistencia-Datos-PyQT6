@@ -43,6 +43,7 @@ class UpdatePlateDialog(QDialog):
         new_description = self.lineEdit_description.text().strip()
         new_restaurant_id = self.lineEdit_restaurantID.text().strip()
         
+        conn = None
 
         try:
             conn, cursor = get_db_connection()
@@ -57,4 +58,5 @@ class UpdatePlateDialog(QDialog):
         except Exception as e:
             QMessageBox.warning(self, "Error", f"Error: {str(e)}")
         finally:
-            close_db_connection(conn)
+            if conn is not None: 
+                close_db_connection(conn)

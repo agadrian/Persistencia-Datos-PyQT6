@@ -21,6 +21,7 @@ class RestaurantDialog(QDialog):
 
     # Insertar restaurante
     def insert_new_restaurant(self):
+        conn = None
         try:
             name = self.lineEdit_name.text()
             address = self.lineEdit_address.text()
@@ -53,5 +54,6 @@ class RestaurantDialog(QDialog):
             error_msg = str(e)
             QMessageBox.warning(self, "Error", error_msg)
         finally:
-            close_db_connection(conn)
+            if conn is not None: 
+                close_db_connection(conn)
     

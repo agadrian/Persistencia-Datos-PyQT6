@@ -21,6 +21,7 @@ class OrderDetailsDialog(QDialog):
 
     # Insertar detalles pedido
     def insert_new_details(self):
+        conn = None
         try:
             orderID = self.lineEdit_orderID.text()
             plateID = self.lineEdit_plateID.text()
@@ -49,5 +50,6 @@ class OrderDetailsDialog(QDialog):
             error_msg = str(e)
             QMessageBox.warning(self, "Error", error_msg)
         finally:
-            close_db_connection(conn)
+            if conn is not None: 
+                close_db_connection(conn)
     

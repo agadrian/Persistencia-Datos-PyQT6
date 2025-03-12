@@ -21,7 +21,11 @@ Por último, hay una página donde hacer una serie de consultas preestablecidas.
 ## Diagrama E-R
 ![diagrama](ui/res/diagrama.png)
 
+## Usuarios en FireBase y Localmente
+![usuarios](ui/res/usersScreenshoot.png)
+![usuarios](ui/res/usersScreenshoot2.png)
+
 ## Utilidades
- - En cuanto a la creación de la base de datosm, se puede hacer facilmente ejecutando este archivo [**`archivo.sql`**](ruta/al/archivo.sql).
- - Como extra se ha añadido una exportaqción de datos de las tablas completas a PDF mediante el uso de la librería FPDF
+ - En cuanto a la creación de la base de datos, se puede hacer facilmente ejecutando este archivo [**`archivo.sql`**](ruta/al/archivo.sql).
+ - Como extra se ha añadido una exportación de datos de las tablas completas a PDF mediante el uso de la librería FPDF
  

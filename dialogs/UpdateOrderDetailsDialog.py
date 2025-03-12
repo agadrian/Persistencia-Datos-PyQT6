@@ -40,6 +40,7 @@ class UpdateOrderDetailsDialog(QDialog):
         new_plateID = self.lineEdit_plateID.text().strip()
         new_amount = self.lineEdit_amount.text().strip()
         
+        conn = None
 
         try:
             conn, cursor = get_db_connection()
@@ -54,4 +55,5 @@ class UpdateOrderDetailsDialog(QDialog):
         except Exception as e:
             QMessageBox.warning(self, "Error", f"Error: {str(e)}")
         finally:
-            close_db_connection(conn)
+            if conn is not None: 
+                close_db_connection(conn)

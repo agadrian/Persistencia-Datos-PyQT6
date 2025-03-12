@@ -44,6 +44,8 @@ class UpdateUserDialog(QDialog):
         new_address = self.lineEdit_address.text().strip()
         new_phone = self.lineEdit_phone.text().strip()
 
+        conn = None
+
         try:
             conn, cursor = get_db_connection()
 
@@ -61,4 +63,5 @@ class UpdateUserDialog(QDialog):
         except Exception as e:
             QMessageBox.warning(self, "Error", f"Error: {str(e)}")
         finally:
-            close_db_connection(conn)
+            if conn is not None: 
+                close_db_connection(conn)

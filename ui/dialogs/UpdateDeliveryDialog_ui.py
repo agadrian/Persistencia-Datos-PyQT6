@@ -170,6 +170,7 @@ class Ui_UpdateOrderDialog(object):
         self.line = QFrame(UpdateOrderDialog)
         self.line.setObjectName(u"line")
         self.line.setGeometry(QRect(0, 60, 541, 20))
+        self.line.setCursor(QCursor(Qt.CursorShape.ArrowCursor))
         self.line.setFrameShape(QFrame.Shape.HLine)
         self.line.setFrameShadow(QFrame.Shadow.Sunken)
 

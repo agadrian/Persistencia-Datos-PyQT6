@@ -25,6 +25,7 @@ class UserDialog(QDialog):
 
     # Insertar usuario
     def insert_new_user(self):
+        conn = None
         try:
             username = self.lineEdit_username.text()
             email = self.lineEdit_email.text()
@@ -66,7 +67,8 @@ class UserDialog(QDialog):
             mensaje = FIREBASE_ERRORS.get(error_msg, f"Error: {error_msg}")
             QMessageBox.warning(self, "Error", mensaje)
         finally:
-            close_db_connection(conn)
+            if conn is not None: 
+                close_db_connection(conn)
     
 
 

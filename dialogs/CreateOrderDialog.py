@@ -21,6 +21,7 @@ class OrderDialog(QDialog):
 
     # Insertar order
     def insert_new_order(self):
+        conn = None
         try:
             userID = self.lineEdit_userID.text()
             restaurantID = self.lineEdit_restaurantID.text()
@@ -49,5 +50,6 @@ class OrderDialog(QDialog):
             error_msg = str(e)
             QMessageBox.warning(self, "Error", error_msg)
         finally:
-            close_db_connection(conn)
+            if conn is not None: 
+                close_db_connection(conn)
     

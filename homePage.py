@@ -8,7 +8,7 @@ class homePage(QWidget):
         super().__init__()
         self.home = home_window
 
-        # Conectar botones - linedits
+        # Conectar botones
 
         # Query 1
         self.pushButton_crossAnalysis = self.home.pushButton_crossAnalysis
@@ -31,11 +31,10 @@ class homePage(QWidget):
 
         
         
-
-        
         # Layout principal
         self.layout = QVBoxLayout(self)
 
+        # Inicializar la tabla en None
         self.current_table = None
 
         ## Ejecutar las consultas al hacer click al botón

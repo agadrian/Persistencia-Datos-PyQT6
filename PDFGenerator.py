@@ -8,20 +8,37 @@ import textwrap
 class PDFGenerator(FPDF):
     def __init__(self, orientation='L', unit='mm', format='A4'):
         super().__init__(orientation, unit, format)
-        self.set_auto_page_break(auto=False, margin=15)  # Desactivar auto paginado
+
+        # Desactivar auto paginado
+        self.set_auto_page_break(auto=False, margin=15)  
         self.add_page()
         self.set_font('Arial', '', 12)
 
     def header(self):
-        self.image('ui/res/logo.png', 10, 10, 30, 30)
-        self.set_font('Arial', 'B', 16)
-        self.cell(0, 10, 'Nombre de la Empresa', 0, 1, 'C')
-        self.ln(18)
+        # Logo empresa
+        self.image('ui/res/logo.png', 10, 12, 30, 30)
+        self.set_y(25)
+
+        # Titulo empresa
+        self.set_font('Arial', 'B', 20)
+        self.cell(0, 10, 'Just Meat S.L', 0, 0, 'C')
+
+        #Hora de creacion de informe
+        self.set_font('Arial', '', 10)
+        self.cell(0, 10, f"Creación informe: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}", 0, 1, 'R') 
+        self.ln(15)
 
     def footer(self):
         self.set_y(-15)
+
+        # Contacto en el centro
         self.set_font('Arial', 'I', 8)
-        self.cell(0, 10, f'Página {self.page_no()}', 0, 0, 'C')
+        self.cell(0, 10, 'Just Meat S.L - Contacto: info@justmeat.com', 0, 0, 'C')
+
+        # Número de página alineado a la derecha
+        self.set_x(-30)  
+        self.cell(0, 10, f'Página {self.page_no()}', 0, 0, 'R')
+       
 
     def add_title(self, title):
         self.set_font('Arial', 'B', 14)

@@ -9,7 +9,7 @@ class UpdateDeliveryDialog(QDialog):
     def __init__(self, delivery_id, delivery_data):
         super().__init__()
 
-        ruta_ui = os.path.join(os.path.dirname(__file__), "../ui", "dialogs", "UpdateRestaurantDialog.ui")
+        ruta_ui = os.path.join(os.path.dirname(__file__), "../ui", "dialogs", "UpdateDeliveryDialog.ui")
         uic.loadUi(ruta_ui, self)
 
 
@@ -40,6 +40,7 @@ class UpdateDeliveryDialog(QDialog):
         new_orderID = self.lineEdit_orderID.text().strip()
         new_vehicle = self.lineEdit_vehicle.text().strip()
         
+        conn = None
 
         try:
             conn, cursor = get_db_connection()
@@ -54,4 +55,5 @@ class UpdateDeliveryDialog(QDialog):
         except Exception as e:
             QMessageBox.warning(self, "Error", f"Error: {str(e)}")
         finally:
-            close_db_connection(conn)
+            if conn is not None: 
+                close_db_connection(conn)

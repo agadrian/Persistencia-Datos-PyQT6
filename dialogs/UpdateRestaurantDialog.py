@@ -46,6 +46,8 @@ class UpdateRestaurantDialog(QDialog):
         new_schedule = self.lineEdit_schedule.text().strip()
         new_qualification = self.lineEdit_qualification.text().strip()
 
+        conn = None
+
         try:
             conn, cursor = get_db_connection()
 
@@ -59,4 +61,5 @@ class UpdateRestaurantDialog(QDialog):
         except Exception as e:
             QMessageBox.warning(self, "Error", f"Error: {str(e)}")
         finally:
-            close_db_connection(conn)
+            if conn is not None: 
+                close_db_connection(conn)

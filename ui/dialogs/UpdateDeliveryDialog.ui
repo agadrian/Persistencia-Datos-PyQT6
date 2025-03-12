@@ -263,6 +263,9 @@ QPushButton:hover {
      <height>20</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
    </property>

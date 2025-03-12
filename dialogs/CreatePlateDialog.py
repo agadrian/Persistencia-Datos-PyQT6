@@ -21,6 +21,7 @@ class PlateDialog(QDialog):
 
     # Insertar plato
     def insert_new_plate(self):
+        conn = None
         try:
             name = self.lineEdit_name.text()
             price = self.lineEdit_price.text()
@@ -50,5 +51,6 @@ class PlateDialog(QDialog):
             error_msg = str(e)
             QMessageBox.warning(self, "Error", error_msg)
         finally:
-            close_db_connection(conn)
+            if conn is not None: 
+                close_db_connection(conn)
     
