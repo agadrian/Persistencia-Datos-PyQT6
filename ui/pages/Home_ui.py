@@ -15,16 +15,22 @@ from PyQt6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PyQt6.QtWidgets import (QAbstractItemView, QApplication, QHBoxLayout, QHeaderView,
-    QLabel, QLineEdit, QMainWindow, QPushButton,
-    QSizePolicy, QStackedWidget, QTableWidget, QTableWidgetItem,
-    QVBoxLayout, QWidget)
+from PyQt6.QtWidgets import (QAbstractItemView, QApplication, QGridLayout, QHBoxLayout,
+    QHeaderView, QLabel, QLineEdit, QMainWindow,
+    QPushButton, QSizePolicy, QSpacerItem, QStackedWidget,
+    QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1314, 866)
+        MainWindow.resize(1314, 854)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
+        MainWindow.setSizePolicy(sizePolicy)
+        MainWindow.setStyleSheet(u"")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.icons = QWidget(self.centralwidget)
@@ -157,35 +163,314 @@ class Ui_MainWindow(object):
         font.setPointSize(30)
         font.setBold(True)
         self.users_tittle_2.setFont(font)
-        self.users_management_2 = QLabel(self.page_consultas)
-        self.users_management_2.setObjectName(u"users_management_2")
-        self.users_management_2.setGeometry(QRect(30, 60, 221, 21))
+        self.tableWidget = QTableWidget(self.page_consultas)
+        self.tableWidget.setObjectName(u"tableWidget")
+        self.tableWidget.setGeometry(QRect(10, 250, 1011, 561))
+        self.tableWidget.setStyleSheet(u"QHeaderView::section{\n"
+"	font-weight: bold;\n"
+"	background-color: black;\n"
+"	color: white;\n"
+"}\n"
+"\n"
+"QTableWidget{\n"
+"	alternate-background-color: #B0EDFB;\n"
+"	background-color: #FFFFFF;\n"
+"}\n"
+"\n"
+"QTableWidget::item, QTableView::item {\n"
+"    background-color: #FFFFFF; \n"
+"}\n"
+"\n"
+"QTableWidget::item:alternate, QTableView::item:alternate {\n"
+"    background-color: #F2F2F2; \n"
+"}")
+        self.tableWidget.setAlternatingRowColors(True)
+        self.tableWidget.setSelectionMode(QAbstractItemView.SelectionMode.NoSelection)
+        self.tableWidget.horizontalHeader().setDefaultSectionSize(120)
+        self.tableWidget.horizontalHeader().setStretchLastSection(True)
+        self.tableWidget.verticalHeader().setVisible(False)
+        self.widget = QWidget(self.page_consultas)
+        self.widget.setObjectName(u"widget")
+        self.widget.setGeometry(QRect(10, 50, 1118, 191))
+        self.gridLayoutQuerys = QGridLayout(self.widget)
+        self.gridLayoutQuerys.setObjectName(u"gridLayoutQuerys")
+        self.gridLayoutQuerys.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_10 = QVBoxLayout()
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setSpacing(6)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.label_10 = QLabel(self.widget)
+        self.label_10.setObjectName(u"label_10")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.label_10.sizePolicy().hasHeightForWidth())
+        self.label_10.setSizePolicy(sizePolicy1)
+        self.label_10.setMinimumSize(QSize(450, 0))
+        self.label_10.setMaximumSize(QSize(450, 16777215))
         font1 = QFont()
-        font1.setFamilies([u"Segoe UI"])
         font1.setPointSize(13)
-        self.users_management_2.setFont(font1)
+        font1.setBold(True)
+        self.label_10.setFont(font1)
+
+        self.horizontalLayout_3.addWidget(self.label_10)
+
+        self.pushButton_q1 = QPushButton(self.widget)
+        self.pushButton_q1.setObjectName(u"pushButton_q1")
+        self.pushButton_q1.setMinimumSize(QSize(60, 0))
+        self.pushButton_q1.setMaximumSize(QSize(60, 16777215))
+        self.pushButton_q1.setStyleSheet(u"QPushButton{\n"
+"	\n"
+"	background-color: rgb(0, 0, 0);\n"
+"	color: white;\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"	font-weight: bold;\n"
+"	font-size: 15px;\n"
+"	padding: 4px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(50, 50, 50);\n"
+"}")
+
+        self.horizontalLayout_3.addWidget(self.pushButton_q1)
+
+
+        self.verticalLayout_10.addLayout(self.horizontalLayout_3)
+
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.label_11 = QLabel(self.widget)
+        self.label_11.setObjectName(u"label_11")
+        self.label_11.setMinimumSize(QSize(450, 0))
+        self.label_11.setMaximumSize(QSize(450, 16777215))
+        self.label_11.setFont(font1)
+
+        self.horizontalLayout_4.addWidget(self.label_11)
+
+        self.pushButton_q2 = QPushButton(self.widget)
+        self.pushButton_q2.setObjectName(u"pushButton_q2")
+        self.pushButton_q2.setMinimumSize(QSize(60, 0))
+        self.pushButton_q2.setMaximumSize(QSize(60, 16777215))
+        self.pushButton_q2.setStyleSheet(u"QPushButton{\n"
+"	\n"
+"	background-color: rgb(0, 0, 0);\n"
+"	color: white;\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"	font-weight: bold;\n"
+"	font-size: 15px;\n"
+"	padding: 4px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(50, 50, 50);\n"
+"}")
+
+        self.horizontalLayout_4.addWidget(self.pushButton_q2)
+
+
+        self.verticalLayout_10.addLayout(self.horizontalLayout_4)
+
+        self.horizontalLayout_5 = QHBoxLayout()
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.label_12 = QLabel(self.widget)
+        self.label_12.setObjectName(u"label_12")
+        self.label_12.setMaximumSize(QSize(450, 16777215))
+        self.label_12.setFont(font1)
+
+        self.horizontalLayout_5.addWidget(self.label_12)
+
+        self.pushButton_q3 = QPushButton(self.widget)
+        self.pushButton_q3.setObjectName(u"pushButton_q3")
+        self.pushButton_q3.setMaximumSize(QSize(60, 16777215))
+        self.pushButton_q3.setStyleSheet(u"QPushButton{\n"
+"	\n"
+"	background-color: rgb(0, 0, 0);\n"
+"	color: white;\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"	font-weight: bold;\n"
+"	font-size: 15px;\n"
+"	padding: 4px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(50, 50, 50);\n"
+"}")
+
+        self.horizontalLayout_5.addWidget(self.pushButton_q3)
+
+
+        self.verticalLayout_10.addLayout(self.horizontalLayout_5)
+
+
+        self.gridLayoutQuerys.addLayout(self.verticalLayout_10, 0, 0, 1, 1)
+
+        self.verticalLayout_11 = QVBoxLayout()
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
+        self.horizontalLayout_10 = QHBoxLayout()
+        self.horizontalLayout_10.setSpacing(25)
+        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
+        self.pushButton_q4 = QPushButton(self.widget)
+        self.pushButton_q4.setObjectName(u"pushButton_q4")
+        self.pushButton_q4.setMinimumSize(QSize(20, 0))
+        self.pushButton_q4.setMaximumSize(QSize(60, 16777215))
+        self.pushButton_q4.setStyleSheet(u"QPushButton{\n"
+"	\n"
+"	background-color: rgb(0, 0, 0);\n"
+"	color: white;\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"	font-weight: bold;\n"
+"	font-size: 15px;\n"
+"	padding: 4px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(50, 50, 50);\n"
+"}")
+
+        self.horizontalLayout_10.addWidget(self.pushButton_q4)
+
+        self.label_13 = QLabel(self.widget)
+        self.label_13.setObjectName(u"label_13")
+        self.label_13.setFont(font1)
+
+        self.horizontalLayout_10.addWidget(self.label_13)
+
+
+        self.verticalLayout_11.addLayout(self.horizontalLayout_10)
+
+        self.horizontalLayout_11 = QHBoxLayout()
+        self.horizontalLayout_11.setSpacing(25)
+        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
+        self.pushButton_q5 = QPushButton(self.widget)
+        self.pushButton_q5.setObjectName(u"pushButton_q5")
+        self.pushButton_q5.setMinimumSize(QSize(60, 0))
+        self.pushButton_q5.setMaximumSize(QSize(60, 16777215))
+        self.pushButton_q5.setStyleSheet(u"QPushButton{\n"
+"	\n"
+"	background-color: rgb(0, 0, 0);\n"
+"	color: white;\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"	font-weight: bold;\n"
+"	font-size: 15px;\n"
+"	padding: 4px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(50, 50, 50);\n"
+"}")
+
+        self.horizontalLayout_11.addWidget(self.pushButton_q5)
+
+        self.label_14 = QLabel(self.widget)
+        self.label_14.setObjectName(u"label_14")
+        self.label_14.setFont(font1)
+
+        self.horizontalLayout_11.addWidget(self.label_14)
+
+
+        self.verticalLayout_11.addLayout(self.horizontalLayout_11)
+
+        self.horizontalLayout_12 = QHBoxLayout()
+        self.horizontalLayout_12.setSpacing(25)
+        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
+        self.pushButton_q6 = QPushButton(self.widget)
+        self.pushButton_q6.setObjectName(u"pushButton_q6")
+        self.pushButton_q6.setMaximumSize(QSize(60, 16777215))
+        self.pushButton_q6.setStyleSheet(u"QPushButton{\n"
+"	\n"
+"	background-color: rgb(0, 0, 0);\n"
+"	color: white;\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"	font-weight: bold;\n"
+"	font-size: 15px;\n"
+"	padding: 4px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(50, 50, 50);\n"
+"}")
+
+        self.horizontalLayout_12.addWidget(self.pushButton_q6)
+
+        self.label_15 = QLabel(self.widget)
+        self.label_15.setObjectName(u"label_15")
+        self.label_15.setFont(font1)
+
+        self.horizontalLayout_12.addWidget(self.label_15)
+
+
+        self.verticalLayout_11.addLayout(self.horizontalLayout_12)
+
+
+        self.gridLayoutQuerys.addLayout(self.verticalLayout_11, 0, 1, 1, 1)
+
         self.stackedWidget.addWidget(self.page_consultas)
         self.page_home = QWidget()
         self.page_home.setObjectName(u"page_home")
-        self.layoutWidget1 = QWidget(self.page_home)
-        self.layoutWidget1.setObjectName(u"layoutWidget1")
-        self.layoutWidget1.setGeometry(QRect(190, 10, 511, 491))
-        self.verticalLayout_8 = QVBoxLayout(self.layoutWidget1)
-        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_9 = QVBoxLayout()
-        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
-        self.label_9 = QLabel(self.layoutWidget1)
-        self.label_9.setObjectName(u"label_9")
+        self.label_16 = QLabel(self.page_home)
+        self.label_16.setObjectName(u"label_16")
+        self.label_16.setGeometry(QRect(20, 60, 281, 41))
         font2 = QFont()
-        font2.setPointSize(15)
-        self.label_9.setFont(font2)
+        font2.setPointSize(13)
+        self.label_16.setFont(font2)
+        self.label_17 = QLabel(self.page_home)
+        self.label_17.setObjectName(u"label_17")
+        self.label_17.setGeometry(QRect(20, 10, 311, 51))
+        font3 = QFont()
+        font3.setPointSize(30)
+        font3.setBold(True)
+        self.label_17.setFont(font3)
+        self.widget1 = QWidget(self.page_home)
+        self.widget1.setObjectName(u"widget1")
+        self.widget1.setGeometry(QRect(30, 210, 951, 311))
+        self.horizontalLayout_13 = QHBoxLayout(self.widget1)
+        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
+        self.horizontalLayout_13.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_8 = QVBoxLayout()
+        self.verticalLayout_8.setSpacing(6)
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.verticalLayout_9 = QVBoxLayout()
+        self.verticalLayout_9.setSpacing(6)
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        self.label_9 = QLabel(self.widget1)
+        self.label_9.setObjectName(u"label_9")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.label_9.sizePolicy().hasHeightForWidth())
+        self.label_9.setSizePolicy(sizePolicy2)
+        font4 = QFont()
+        font4.setPointSize(15)
+        font4.setBold(True)
+        self.label_9.setFont(font4)
         self.label_9.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.verticalLayout_9.addWidget(self.label_9)
 
-        self.pushButton_crossAnalysis = QPushButton(self.layoutWidget1)
+        self.pushButton_crossAnalysis = QPushButton(self.widget1)
         self.pushButton_crossAnalysis.setObjectName(u"pushButton_crossAnalysis")
+        self.pushButton_crossAnalysis.setStyleSheet(u"QPushButton{\n"
+"	\n"
+"	background-color: rgb(120, 120, 120);\n"
+"	color: white;\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"	font-weight: bold;\n"
+"	font-size: 15px;\n"
+"	padding: 4px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(100, 100, 100);\n"
+"}")
 
         self.verticalLayout_9.addWidget(self.pushButton_crossAnalysis)
 
@@ -194,15 +479,31 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_4 = QVBoxLayout()
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.label_5 = QLabel(self.layoutWidget1)
+        self.label_5 = QLabel(self.widget1)
         self.label_5.setObjectName(u"label_5")
-        self.label_5.setFont(font2)
+        sizePolicy2.setHeightForWidth(self.label_5.sizePolicy().hasHeightForWidth())
+        self.label_5.setSizePolicy(sizePolicy2)
+        self.label_5.setFont(font4)
         self.label_5.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.verticalLayout_4.addWidget(self.label_5)
 
-        self.pushButton_getTopRestaurants = QPushButton(self.layoutWidget1)
+        self.pushButton_getTopRestaurants = QPushButton(self.widget1)
         self.pushButton_getTopRestaurants.setObjectName(u"pushButton_getTopRestaurants")
+        self.pushButton_getTopRestaurants.setStyleSheet(u"QPushButton{\n"
+"	\n"
+"	background-color: rgb(120, 120, 120);\n"
+"	color: white;\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"	font-weight: bold;\n"
+"	font-size: 15px;\n"
+"	padding: 4px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(100, 100, 100);\n"
+"}")
 
         self.verticalLayout_4.addWidget(self.pushButton_getTopRestaurants)
 
@@ -211,90 +512,171 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_5 = QVBoxLayout()
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.label_6 = QLabel(self.layoutWidget1)
+        self.label_6 = QLabel(self.widget1)
         self.label_6.setObjectName(u"label_6")
-        self.label_6.setFont(font2)
+        sizePolicy2.setHeightForWidth(self.label_6.sizePolicy().hasHeightForWidth())
+        self.label_6.setSizePolicy(sizePolicy2)
+        self.label_6.setFont(font4)
         self.label_6.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.verticalLayout_5.addWidget(self.label_6)
 
-        self.pushButton_getConsum = QPushButton(self.layoutWidget1)
+        self.pushButton_getConsum = QPushButton(self.widget1)
         self.pushButton_getConsum.setObjectName(u"pushButton_getConsum")
+        self.pushButton_getConsum.setStyleSheet(u"QPushButton{\n"
+"	\n"
+"	background-color: rgb(120, 120, 120);\n"
+"	color: white;\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"	font-weight: bold;\n"
+"	font-size: 15px;\n"
+"	padding: 4px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(100, 100, 100);\n"
+"}")
 
         self.verticalLayout_5.addWidget(self.pushButton_getConsum)
 
 
         self.verticalLayout_8.addLayout(self.verticalLayout_5)
 
+
+        self.horizontalLayout_13.addLayout(self.verticalLayout_8)
+
+        self.horizontalSpacer = QSpacerItem(50, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_13.addItem(self.horizontalSpacer)
+
+        self.verticalLayout_12 = QVBoxLayout()
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
         self.verticalLayout_6 = QVBoxLayout()
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.label_7 = QLabel(self.layoutWidget1)
+        self.label_7 = QLabel(self.widget1)
         self.label_7.setObjectName(u"label_7")
-        self.label_7.setFont(font2)
+        sizePolicy2.setHeightForWidth(self.label_7.sizePolicy().hasHeightForWidth())
+        self.label_7.setSizePolicy(sizePolicy2)
+        self.label_7.setFont(font4)
         self.label_7.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.verticalLayout_6.addWidget(self.label_7)
 
-        self.pushButton_getbutn = QPushButton(self.layoutWidget1)
+        self.pushButton_getbutn = QPushButton(self.widget1)
         self.pushButton_getbutn.setObjectName(u"pushButton_getbutn")
+        self.pushButton_getbutn.setStyleSheet(u"QPushButton{\n"
+"	\n"
+"	background-color: rgb(120, 120, 120);\n"
+"	color: white;\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"	font-weight: bold;\n"
+"	font-size: 15px;\n"
+"	padding: 4px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(100, 100, 100);\n"
+"}")
 
         self.verticalLayout_6.addWidget(self.pushButton_getbutn)
 
 
-        self.verticalLayout_8.addLayout(self.verticalLayout_6)
+        self.verticalLayout_12.addLayout(self.verticalLayout_6)
 
         self.verticalLayout_7 = QVBoxLayout()
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.label_8 = QLabel(self.layoutWidget1)
+        self.label_8 = QLabel(self.widget1)
         self.label_8.setObjectName(u"label_8")
-        self.label_8.setFont(font2)
+        sizePolicy2.setHeightForWidth(self.label_8.sizePolicy().hasHeightForWidth())
+        self.label_8.setSizePolicy(sizePolicy2)
+        self.label_8.setFont(font4)
         self.label_8.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.verticalLayout_7.addWidget(self.label_8)
 
-        self.pushButton_getRestDishes_5 = QPushButton(self.layoutWidget1)
+        self.pushButton_getRestDishes_5 = QPushButton(self.widget1)
         self.pushButton_getRestDishes_5.setObjectName(u"pushButton_getRestDishes_5")
+        self.pushButton_getRestDishes_5.setStyleSheet(u"QPushButton{\n"
+"	\n"
+"	background-color: rgb(120, 120, 120);\n"
+"	color: white;\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"	font-weight: bold;\n"
+"	font-size: 15px;\n"
+"	padding: 4px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(100, 100, 100);\n"
+"}")
 
         self.verticalLayout_7.addWidget(self.pushButton_getRestDishes_5)
 
 
-        self.verticalLayout_8.addLayout(self.verticalLayout_7)
+        self.verticalLayout_12.addLayout(self.verticalLayout_7)
 
         self.verticalLayout_3 = QVBoxLayout()
         self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.label_2 = QLabel(self.layoutWidget1)
+        self.label_2 = QLabel(self.widget1)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setEnabled(True)
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
-        self.label_2.setSizePolicy(sizePolicy)
-        font3 = QFont()
-        font3.setPointSize(15)
-        font3.setBold(False)
-        self.label_2.setFont(font3)
+        sizePolicy2.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
+        self.label_2.setSizePolicy(sizePolicy2)
+        self.label_2.setFont(font4)
         self.label_2.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.verticalLayout_3.addWidget(self.label_2)
 
-        self.lineEdit_allRestaurantDishes = QLineEdit(self.layoutWidget1)
+        self.lineEdit_allRestaurantDishes = QLineEdit(self.widget1)
         self.lineEdit_allRestaurantDishes.setObjectName(u"lineEdit_allRestaurantDishes")
-        font4 = QFont()
-        font4.setWeight(QFont.Medium)
-        self.lineEdit_allRestaurantDishes.setFont(font4)
+        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Fixed)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.lineEdit_allRestaurantDishes.sizePolicy().hasHeightForWidth())
+        self.lineEdit_allRestaurantDishes.setSizePolicy(sizePolicy3)
+        self.lineEdit_allRestaurantDishes.setMinimumSize(QSize(40, 0))
+        self.lineEdit_allRestaurantDishes.setMaximumSize(QSize(99999, 16777215))
+        font5 = QFont()
+        font5.setWeight(QFont.Medium)
+        self.lineEdit_allRestaurantDishes.setFont(font5)
+        self.lineEdit_allRestaurantDishes.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        self.lineEdit_allRestaurantDishes.setStyleSheet(u"QLineEdit{\n"
+"	margin-bottom: 10px;\n"
+"	padding: 3px;\n"
+"}")
         self.lineEdit_allRestaurantDishes.setCursorPosition(0)
+        self.lineEdit_allRestaurantDishes.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.verticalLayout_3.addWidget(self.lineEdit_allRestaurantDishes)
 
-        self.pushButton_getRestDishes = QPushButton(self.layoutWidget1)
+        self.pushButton_getRestDishes = QPushButton(self.widget1)
         self.pushButton_getRestDishes.setObjectName(u"pushButton_getRestDishes")
+        self.pushButton_getRestDishes.setStyleSheet(u"QPushButton{\n"
+"	\n"
+"	background-color: rgb(120, 120, 120);\n"
+"	color: white;\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"	font-weight: bold;\n"
+"	font-size: 15px;\n"
+"	padding: 4px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(100, 100, 100);\n"
+"}")
 
         self.verticalLayout_3.addWidget(self.pushButton_getRestDishes)
 
 
-        self.verticalLayout_8.addLayout(self.verticalLayout_3)
+        self.verticalLayout_12.addLayout(self.verticalLayout_3)
+
+
+        self.horizontalLayout_13.addLayout(self.verticalLayout_12)
 
         self.stackedWidget.addWidget(self.page_home)
         self.page_usuarios = QWidget()
@@ -362,19 +744,22 @@ class Ui_MainWindow(object):
         self.users_management = QLabel(self.page_usuarios)
         self.users_management.setObjectName(u"users_management")
         self.users_management.setGeometry(QRect(20, 50, 221, 41))
-        self.users_management.setFont(font1)
+        font6 = QFont()
+        font6.setFamilies([u"Segoe UI"])
+        font6.setPointSize(13)
+        self.users_management.setFont(font6)
         self.users_tittle = QLabel(self.page_usuarios)
         self.users_tittle.setObjectName(u"users_tittle")
         self.users_tittle.setGeometry(QRect(20, 0, 121, 51))
         self.users_tittle.setFont(font)
-        self.layoutWidget2 = QWidget(self.page_usuarios)
-        self.layoutWidget2.setObjectName(u"layoutWidget2")
-        self.layoutWidget2.setGeometry(QRect(20, 100, 271, 42))
-        self.horizontalLayout_2 = QHBoxLayout(self.layoutWidget2)
+        self.layoutWidget1 = QWidget(self.page_usuarios)
+        self.layoutWidget1.setObjectName(u"layoutWidget1")
+        self.layoutWidget1.setGeometry(QRect(20, 100, 271, 42))
+        self.horizontalLayout_2 = QHBoxLayout(self.layoutWidget1)
         self.horizontalLayout_2.setSpacing(10)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.btn_addUser_2 = QPushButton(self.layoutWidget2)
+        self.btn_addUser_2 = QPushButton(self.layoutWidget1)
         self.btn_addUser_2.setObjectName(u"btn_addUser_2")
         self.btn_addUser_2.setMinimumSize(QSize(0, 40))
         self.btn_addUser_2.setStyleSheet(u"QPushButton{\n"
@@ -394,7 +779,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_2.addWidget(self.btn_addUser_2)
 
-        self.btn_exportToPDF = QPushButton(self.layoutWidget2)
+        self.btn_exportToPDF = QPushButton(self.layoutWidget1)
         self.btn_exportToPDF.setObjectName(u"btn_exportToPDF")
         self.btn_exportToPDF.setMinimumSize(QSize(0, 40))
         self.btn_exportToPDF.setStyleSheet(u"QPushButton{\n"
@@ -482,9 +867,7 @@ class Ui_MainWindow(object):
         self.restaurant_management = QLabel(self.page_restaurantes)
         self.restaurant_management.setObjectName(u"restaurant_management")
         self.restaurant_management.setGeometry(QRect(20, 50, 261, 41))
-        font5 = QFont()
-        font5.setPointSize(13)
-        self.restaurant_management.setFont(font5)
+        self.restaurant_management.setFont(font2)
         self.layoutWidget_2 = QWidget(self.page_restaurantes)
         self.layoutWidget_2.setObjectName(u"layoutWidget_2")
         self.layoutWidget_2.setGeometry(QRect(20, 100, 271, 42))
@@ -535,10 +918,7 @@ class Ui_MainWindow(object):
         self.restaurant_tittle = QLabel(self.page_restaurantes)
         self.restaurant_tittle.setObjectName(u"restaurant_tittle")
         self.restaurant_tittle.setGeometry(QRect(20, 0, 241, 51))
-        font6 = QFont()
-        font6.setPointSize(30)
-        font6.setBold(True)
-        self.restaurant_tittle.setFont(font6)
+        self.restaurant_tittle.setFont(font3)
         self.stackedWidget.addWidget(self.page_restaurantes)
         self.page_platos = QWidget()
         self.page_platos.setObjectName(u"page_platos")
@@ -603,7 +983,7 @@ class Ui_MainWindow(object):
         self.plates_tittle = QLabel(self.page_platos)
         self.plates_tittle.setObjectName(u"plates_tittle")
         self.plates_tittle.setGeometry(QRect(20, 0, 241, 51))
-        self.plates_tittle.setFont(font6)
+        self.plates_tittle.setFont(font3)
         self.layoutWidget_3 = QWidget(self.page_platos)
         self.layoutWidget_3.setObjectName(u"layoutWidget_3")
         self.layoutWidget_3.setGeometry(QRect(20, 100, 271, 42))
@@ -654,7 +1034,7 @@ class Ui_MainWindow(object):
         self.plates_management = QLabel(self.page_platos)
         self.plates_management.setObjectName(u"plates_management")
         self.plates_management.setGeometry(QRect(20, 50, 261, 41))
-        self.plates_management.setFont(font5)
+        self.plates_management.setFont(font2)
         self.stackedWidget.addWidget(self.page_platos)
         self.page_pedidos = QWidget()
         self.page_pedidos.setObjectName(u"page_pedidos")
@@ -717,11 +1097,11 @@ class Ui_MainWindow(object):
         self.plates_management_2 = QLabel(self.page_pedidos)
         self.plates_management_2.setObjectName(u"plates_management_2")
         self.plates_management_2.setGeometry(QRect(20, 50, 261, 41))
-        self.plates_management_2.setFont(font5)
+        self.plates_management_2.setFont(font2)
         self.plates_tittle_2 = QLabel(self.page_pedidos)
         self.plates_tittle_2.setObjectName(u"plates_tittle_2")
         self.plates_tittle_2.setGeometry(QRect(20, 0, 241, 51))
-        self.plates_tittle_2.setFont(font6)
+        self.plates_tittle_2.setFont(font3)
         self.layoutWidget_4 = QWidget(self.page_pedidos)
         self.layoutWidget_4.setObjectName(u"layoutWidget_4")
         self.layoutWidget_4.setGeometry(QRect(20, 100, 271, 42))
@@ -772,15 +1152,15 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.page_pedidos)
         self.page_detallesPedidos = QWidget()
         self.page_detallesPedidos.setObjectName(u"page_detallesPedidos")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.page_detallesPedidos.sizePolicy().hasHeightForWidth())
-        self.page_detallesPedidos.setSizePolicy(sizePolicy1)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.page_detallesPedidos.sizePolicy().hasHeightForWidth())
+        self.page_detallesPedidos.setSizePolicy(sizePolicy4)
         self.plates_management_3 = QLabel(self.page_detallesPedidos)
         self.plates_management_3.setObjectName(u"plates_management_3")
         self.plates_management_3.setGeometry(QRect(20, 50, 261, 41))
-        self.plates_management_3.setFont(font5)
+        self.plates_management_3.setFont(font2)
         self.layoutWidget_5 = QWidget(self.page_detallesPedidos)
         self.layoutWidget_5.setObjectName(u"layoutWidget_5")
         self.layoutWidget_5.setGeometry(QRect(20, 100, 321, 42))
@@ -831,7 +1211,7 @@ class Ui_MainWindow(object):
         self.plates_tittle_3 = QLabel(self.page_detallesPedidos)
         self.plates_tittle_3.setObjectName(u"plates_tittle_3")
         self.plates_tittle_3.setGeometry(QRect(20, 0, 281, 51))
-        self.plates_tittle_3.setFont(font6)
+        self.plates_tittle_3.setFont(font3)
         self.lineEdit_searchByOrderID = QLineEdit(self.page_detallesPedidos)
         self.lineEdit_searchByOrderID.setObjectName(u"lineEdit_searchByOrderID")
         self.lineEdit_searchByOrderID.setGeometry(QRect(740, 110, 271, 35))
@@ -858,8 +1238,8 @@ class Ui_MainWindow(object):
         self.tabla_ordersDetails.setHorizontalHeaderItem(4, __qtablewidgetitem30)
         self.tabla_ordersDetails.setObjectName(u"tabla_ordersDetails")
         self.tabla_ordersDetails.setGeometry(QRect(20, 160, 990, 640))
-        sizePolicy.setHeightForWidth(self.tabla_ordersDetails.sizePolicy().hasHeightForWidth())
-        self.tabla_ordersDetails.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.tabla_ordersDetails.sizePolicy().hasHeightForWidth())
+        self.tabla_ordersDetails.setSizePolicy(sizePolicy1)
         self.tabla_ordersDetails.setStyleSheet(u"QHeaderView::section{\n"
 "	font-weight: bold;\n"
 "	background-color: black;\n"
@@ -896,11 +1276,11 @@ class Ui_MainWindow(object):
         self.label_3 = QLabel(self.page_repartidores)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setGeometry(QRect(20, 0, 311, 51))
-        self.label_3.setFont(font6)
+        self.label_3.setFont(font3)
         self.label_4 = QLabel(self.page_repartidores)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setGeometry(QRect(20, 50, 281, 41))
-        self.label_4.setFont(font5)
+        self.label_4.setFont(font2)
         self.tabla_delivery = QTableWidget(self.page_repartidores)
         if (self.tabla_delivery.columnCount() < 6):
             self.tabla_delivery.setColumnCount(6)
@@ -1018,7 +1398,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1037,20 +1417,33 @@ class Ui_MainWindow(object):
         self.btn_exit.setText("")
         self.label.setText("")
         self.users_tittle_2.setText(QCoreApplication.translate("MainWindow", u"Querys", None))
-        self.users_management_2.setText(QCoreApplication.translate("MainWindow", u"Query Area", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Top-rated restaurants and their most expensive dishes ", None))
+        self.pushButton_q1.setText(QCoreApplication.translate("MainWindow", u"Get ", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Users with the most orders and their favorite restaurant", None))
+        self.pushButton_q2.setText(QCoreApplication.translate("MainWindow", u"Get ", None))
+        self.label_12.setText(QCoreApplication.translate("MainWindow", u"Delivery driver performance by order status", None))
+        self.pushButton_q3.setText(QCoreApplication.translate("MainWindow", u"Get ", None))
+        self.pushButton_q4.setText(QCoreApplication.translate("MainWindow", u"Get ", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Most popular dishes by restaurant category", None))
+        self.pushButton_q5.setText(QCoreApplication.translate("MainWindow", u"Get ", None))
+        self.label_14.setText(QCoreApplication.translate("MainWindow", u"Customers never ordered from Italian categ", None))
+        self.pushButton_q6.setText(QCoreApplication.translate("MainWindow", u"Get ", None))
+        self.label_15.setText(QCoreApplication.translate("MainWindow", u"Restaurants with pending orders", None))
+        self.label_16.setText(QCoreApplication.translate("MainWindow", u"Reports Management Area", None))
+        self.label_17.setText(QCoreApplication.translate("MainWindow", u"Reports ", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Cross-Analysis of Users, Dishes and Categories", None))
-        self.pushButton_crossAnalysis.setText(QCoreApplication.translate("MainWindow", u"Get PDF", None))
+        self.pushButton_crossAnalysis.setText(QCoreApplication.translate("MainWindow", u"Export to PDF", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Top 5 restraurants by sales Volume", None))
-        self.pushButton_getTopRestaurants.setText(QCoreApplication.translate("MainWindow", u"Get PDF", None))
+        self.pushButton_getTopRestaurants.setText(QCoreApplication.translate("MainWindow", u"Export to PDF", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Customer Analysis and Consumption Habits", None))
-        self.pushButton_getConsum.setText(QCoreApplication.translate("MainWindow", u"Get PDF", None))
+        self.pushButton_getConsum.setText(QCoreApplication.translate("MainWindow", u"Export to PDF", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"Analysis of Dish Popularity and Profitability", None))
-        self.pushButton_getbutn.setText(QCoreApplication.translate("MainWindow", u"Get PDF", None))
+        self.pushButton_getbutn.setText(QCoreApplication.translate("MainWindow", u"Export to PDF", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"Restaurant Efficiency Analysis by Order Status", None))
-        self.pushButton_getRestDishes_5.setText(QCoreApplication.translate("MainWindow", u"Get PDF", None))
+        self.pushButton_getRestDishes_5.setText(QCoreApplication.translate("MainWindow", u"Export to PDF", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Get all restaurant dishes", None))
-        self.lineEdit_allRestaurantDishes.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Write restaurant ID...", None))
-        self.pushButton_getRestDishes.setText(QCoreApplication.translate("MainWindow", u"Get PDF", None))
+        self.lineEdit_allRestaurantDishes.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Restaurant ID...", None))
+        self.pushButton_getRestDishes.setText(QCoreApplication.translate("MainWindow", u"Export to PDF", None))
         ___qtablewidgetitem = self.tabla_users.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Id", None));
         ___qtablewidgetitem1 = self.tabla_users.horizontalHeaderItem(1)

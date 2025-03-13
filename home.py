@@ -12,7 +12,7 @@ from repartidores import repartidoresPage
 from ui.pages.Home_ui import Ui_MainWindow
 from homePage import homePage
 from PyQt6.QtGui import QIcon
-
+from querys import querysPage
 
 
 class HomeWindow(QMainWindow):
@@ -20,6 +20,8 @@ class HomeWindow(QMainWindow):
         super(HomeWindow, self).__init__()
         self.setWindowTitle("Just Meat App")
         self.setWindowIcon(QIcon("ui/res/logo.png"))
+
+        QMainWindow.setFixedSize(self, 1315, 855)
         
       
         ruta_ui = os.path.join(os.path.dirname(__file__), "ui", "pages", "Home.ui")
@@ -34,6 +36,7 @@ class HomeWindow(QMainWindow):
         self.pedidos_page = pedidosPage(self)
         self.detalles_pedido_page = detallesPedidoPage(self)
         self.repartidores_page = repartidoresPage(self)
+        self.querysPage = querysPage(self)
        
 
        
