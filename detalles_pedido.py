@@ -32,10 +32,10 @@ class detallesPedidoPage(QWidget):
 
         # Espacio de cada columna de la tabla
         self.tabla_ordersDetails.setColumnWidth(0, 40)
-        self.tabla_ordersDetails.setColumnWidth(1, 120)
-        self.tabla_ordersDetails.setColumnWidth(2, 130)
-        self.tabla_ordersDetails.setColumnWidth(3, 130)
-        self.tabla_ordersDetails.setColumnWidth(4, 100)
+        self.tabla_ordersDetails.setColumnWidth(1, 180)
+        self.tabla_ordersDetails.setColumnWidth(2, 180)
+        self.tabla_ordersDetails.setColumnWidth(3, 180)
+        self.tabla_ordersDetails.setColumnWidth(4, 180)
         self.tabla_ordersDetails.setColumnWidth(5, 50)
         
 

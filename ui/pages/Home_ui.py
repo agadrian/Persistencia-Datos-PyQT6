@@ -15,16 +15,16 @@ from PyQt6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PyQt6.QtWidgets import (QApplication, QHBoxLayout, QHeaderView, QLabel,
-    QLineEdit, QMainWindow, QPushButton, QSizePolicy,
-    QStackedWidget, QTableWidget, QTableWidgetItem, QVBoxLayout,
-    QWidget)
+from PyQt6.QtWidgets import (QAbstractItemView, QApplication, QHBoxLayout, QHeaderView,
+    QLabel, QLineEdit, QMainWindow, QPushButton,
+    QSizePolicy, QStackedWidget, QTableWidget, QTableWidgetItem,
+    QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1310, 879)
+        MainWindow.resize(1314, 866)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.icons = QWidget(self.centralwidget)
@@ -138,15 +138,15 @@ class Ui_MainWindow(object):
 
         self.label = QLabel(self.icons)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(60, 10, 101, 71))
+        self.label.setGeometry(QRect(60, 20, 101, 71))
         self.label.setPixmap(QPixmap(u"../res/logo3.png"))
         self.main_screen = QWidget(self.centralwidget)
         self.main_screen.setObjectName(u"main_screen")
-        self.main_screen.setGeometry(QRect(360, 110, 881, 741))
+        self.main_screen.setGeometry(QRect(250, 90, 1061, 771))
         self.main_screen.setStyleSheet(u"<-- background-color: rgb(255, 170, 0); -->")
-        self.stackedWidget = QStackedWidget(self.main_screen)
+        self.stackedWidget = QStackedWidget(self.centralwidget)
         self.stackedWidget.setObjectName(u"stackedWidget")
-        self.stackedWidget.setGeometry(QRect(30, 20, 841, 701))
+        self.stackedWidget.setGeometry(QRect(260, 30, 1031, 841))
         self.page_consultas = QWidget()
         self.page_consultas.setObjectName(u"page_consultas")
         self.users_tittle_2 = QLabel(self.page_consultas)
@@ -317,7 +317,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem6 = QTableWidgetItem()
         self.tabla_users.setHorizontalHeaderItem(6, __qtablewidgetitem6)
         self.tabla_users.setObjectName(u"tabla_users")
-        self.tabla_users.setGeometry(QRect(20, 160, 781, 531))
+        self.tabla_users.setGeometry(QRect(20, 160, 990, 640))
         self.tabla_users.setStyleSheet(u"QHeaderView::section{\n"
 "	font-weight: bold;\n"
 "	background-color: black;\n"
@@ -326,14 +326,23 @@ class Ui_MainWindow(object):
 "\n"
 "QTableWidget{\n"
 "	alternate-background-color: #B0EDFB;\n"
-"	background-color: #F4F9FA;\n"
+"	background-color: #FFFFFF;\n"
+"}\n"
+"\n"
+"QTableWidget::item, QTableView::item {\n"
+"    background-color: #FFFFFF; \n"
+"}\n"
+"\n"
+"QTableWidget::item:alternate, QTableView::item:alternate {\n"
+"    background-color: #F2F2F2; \n"
 "}")
         self.tabla_users.setAlternatingRowColors(True)
+        self.tabla_users.setSelectionMode(QAbstractItemView.SelectionMode.NoSelection)
         self.tabla_users.setTextElideMode(Qt.TextElideMode.ElideMiddle)
         self.tabla_users.setColumnCount(7)
         self.tabla_users.horizontalHeader().setVisible(True)
         self.tabla_users.horizontalHeader().setCascadingSectionResizes(False)
-        self.tabla_users.horizontalHeader().setDefaultSectionSize(80)
+        self.tabla_users.horizontalHeader().setDefaultSectionSize(120)
         self.tabla_users.horizontalHeader().setProperty(u"showSortIndicator", False)
         self.tabla_users.horizontalHeader().setStretchLastSection(True)
         self.tabla_users.verticalHeader().setVisible(False)
@@ -341,7 +350,7 @@ class Ui_MainWindow(object):
         self.tabla_users.verticalHeader().setStretchLastSection(False)
         self.lineEdit_search_email = QLineEdit(self.page_usuarios)
         self.lineEdit_search_email.setObjectName(u"lineEdit_search_email")
-        self.lineEdit_search_email.setGeometry(QRect(530, 100, 271, 35))
+        self.lineEdit_search_email.setGeometry(QRect(740, 110, 271, 35))
         self.lineEdit_search_email.setMinimumSize(QSize(0, 35))
         self.lineEdit_search_email.setMaximumSize(QSize(16777215, 35))
         self.lineEdit_search_email.setStyleSheet(u"QLineEdit{\n"
@@ -428,7 +437,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem14 = QTableWidgetItem()
         self.tabla_restaurants.setHorizontalHeaderItem(7, __qtablewidgetitem14)
         self.tabla_restaurants.setObjectName(u"tabla_restaurants")
-        self.tabla_restaurants.setGeometry(QRect(20, 160, 781, 531))
+        self.tabla_restaurants.setGeometry(QRect(20, 160, 990, 640))
         self.tabla_restaurants.setStyleSheet(u"QHeaderView::section{\n"
 "	font-weight: bold;\n"
 "	background-color: black;\n"
@@ -437,14 +446,23 @@ class Ui_MainWindow(object):
 "\n"
 "QTableWidget{\n"
 "	alternate-background-color: #B0EDFB;\n"
-"	background-color: #F4F9FA;\n"
+"	background-color: #FFFFFF;\n"
+"}\n"
+"\n"
+"QTableWidget::item, QTableView::item {\n"
+"    background-color: #FFFFFF; \n"
+"}\n"
+"\n"
+"QTableWidget::item:alternate, QTableView::item:alternate {\n"
+"    background-color: #F2F2F2; \n"
 "}")
         self.tabla_restaurants.setAlternatingRowColors(True)
+        self.tabla_restaurants.setSelectionMode(QAbstractItemView.SelectionMode.NoSelection)
         self.tabla_restaurants.setTextElideMode(Qt.TextElideMode.ElideMiddle)
         self.tabla_restaurants.setColumnCount(8)
         self.tabla_restaurants.horizontalHeader().setVisible(True)
         self.tabla_restaurants.horizontalHeader().setCascadingSectionResizes(False)
-        self.tabla_restaurants.horizontalHeader().setDefaultSectionSize(80)
+        self.tabla_restaurants.horizontalHeader().setDefaultSectionSize(110)
         self.tabla_restaurants.horizontalHeader().setProperty(u"showSortIndicator", False)
         self.tabla_restaurants.horizontalHeader().setStretchLastSection(True)
         self.tabla_restaurants.verticalHeader().setVisible(False)
@@ -452,7 +470,7 @@ class Ui_MainWindow(object):
         self.tabla_restaurants.verticalHeader().setStretchLastSection(False)
         self.lineEdit_searchByNameCategoryTlfn = QLineEdit(self.page_restaurantes)
         self.lineEdit_searchByNameCategoryTlfn.setObjectName(u"lineEdit_searchByNameCategoryTlfn")
-        self.lineEdit_searchByNameCategoryTlfn.setGeometry(QRect(530, 100, 271, 35))
+        self.lineEdit_searchByNameCategoryTlfn.setGeometry(QRect(740, 110, 271, 35))
         self.lineEdit_searchByNameCategoryTlfn.setMinimumSize(QSize(0, 35))
         self.lineEdit_searchByNameCategoryTlfn.setMaximumSize(QSize(16777215, 35))
         self.lineEdit_searchByNameCategoryTlfn.setStyleSheet(u"QLineEdit{\n"
@@ -540,7 +558,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem20 = QTableWidgetItem()
         self.tabla_plates.setHorizontalHeaderItem(5, __qtablewidgetitem20)
         self.tabla_plates.setObjectName(u"tabla_plates")
-        self.tabla_plates.setGeometry(QRect(20, 160, 781, 531))
+        self.tabla_plates.setGeometry(QRect(20, 160, 990, 640))
         self.tabla_plates.setStyleSheet(u"QHeaderView::section{\n"
 "	font-weight: bold;\n"
 "	background-color: black;\n"
@@ -549,14 +567,23 @@ class Ui_MainWindow(object):
 "\n"
 "QTableWidget{\n"
 "	alternate-background-color: #B0EDFB;\n"
-"	background-color: #F4F9FA;\n"
+"	background-color: #FFFFFF;\n"
+"}\n"
+"\n"
+"QTableWidget::item, QTableView::item {\n"
+"    background-color: #FFFFFF; \n"
+"}\n"
+"\n"
+"QTableWidget::item:alternate, QTableView::item:alternate {\n"
+"    background-color: #F2F2F2; \n"
 "}")
         self.tabla_plates.setAlternatingRowColors(True)
+        self.tabla_plates.setSelectionMode(QAbstractItemView.SelectionMode.NoSelection)
         self.tabla_plates.setTextElideMode(Qt.TextElideMode.ElideMiddle)
         self.tabla_plates.setColumnCount(6)
         self.tabla_plates.horizontalHeader().setVisible(True)
         self.tabla_plates.horizontalHeader().setCascadingSectionResizes(False)
-        self.tabla_plates.horizontalHeader().setDefaultSectionSize(106)
+        self.tabla_plates.horizontalHeader().setDefaultSectionSize(165)
         self.tabla_plates.horizontalHeader().setProperty(u"showSortIndicator", False)
         self.tabla_plates.horizontalHeader().setStretchLastSection(True)
         self.tabla_plates.verticalHeader().setVisible(False)
@@ -564,7 +591,7 @@ class Ui_MainWindow(object):
         self.tabla_plates.verticalHeader().setStretchLastSection(False)
         self.lineEdit_searchByNameDescription = QLineEdit(self.page_platos)
         self.lineEdit_searchByNameDescription.setObjectName(u"lineEdit_searchByNameDescription")
-        self.lineEdit_searchByNameDescription.setGeometry(QRect(530, 100, 271, 35))
+        self.lineEdit_searchByNameDescription.setGeometry(QRect(740, 110, 271, 35))
         self.lineEdit_searchByNameDescription.setMinimumSize(QSize(0, 35))
         self.lineEdit_searchByNameDescription.setMaximumSize(QSize(16777215, 35))
         self.lineEdit_searchByNameDescription.setStyleSheet(u"QLineEdit{\n"
@@ -645,7 +672,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem25 = QTableWidgetItem()
         self.tabla_orders.setHorizontalHeaderItem(4, __qtablewidgetitem25)
         self.tabla_orders.setObjectName(u"tabla_orders")
-        self.tabla_orders.setGeometry(QRect(20, 160, 781, 531))
+        self.tabla_orders.setGeometry(QRect(20, 160, 990, 640))
         self.tabla_orders.setStyleSheet(u"QHeaderView::section{\n"
 "	font-weight: bold;\n"
 "	background-color: black;\n"
@@ -654,14 +681,23 @@ class Ui_MainWindow(object):
 "\n"
 "QTableWidget{\n"
 "	alternate-background-color: #B0EDFB;\n"
-"	background-color: #F4F9FA;\n"
+"	background-color: #FFFFFF;\n"
+"}\n"
+"\n"
+"QTableWidget::item, QTableView::item {\n"
+"    background-color: #FFFFFF; \n"
+"}\n"
+"\n"
+"QTableWidget::item:alternate, QTableView::item:alternate {\n"
+"    background-color: #F2F2F2; \n"
 "}")
         self.tabla_orders.setAlternatingRowColors(True)
+        self.tabla_orders.setSelectionMode(QAbstractItemView.SelectionMode.NoSelection)
         self.tabla_orders.setTextElideMode(Qt.TextElideMode.ElideMiddle)
         self.tabla_orders.setColumnCount(5)
         self.tabla_orders.horizontalHeader().setVisible(True)
         self.tabla_orders.horizontalHeader().setCascadingSectionResizes(False)
-        self.tabla_orders.horizontalHeader().setDefaultSectionSize(149)
+        self.tabla_orders.horizontalHeader().setDefaultSectionSize(200)
         self.tabla_orders.horizontalHeader().setProperty(u"showSortIndicator", False)
         self.tabla_orders.horizontalHeader().setStretchLastSection(True)
         self.tabla_orders.verticalHeader().setVisible(False)
@@ -669,7 +705,7 @@ class Ui_MainWindow(object):
         self.tabla_orders.verticalHeader().setStretchLastSection(False)
         self.lineEdit_searchByUserID = QLineEdit(self.page_pedidos)
         self.lineEdit_searchByUserID.setObjectName(u"lineEdit_searchByUserID")
-        self.lineEdit_searchByUserID.setGeometry(QRect(530, 100, 271, 35))
+        self.lineEdit_searchByUserID.setGeometry(QRect(740, 110, 271, 35))
         self.lineEdit_searchByUserID.setMinimumSize(QSize(0, 35))
         self.lineEdit_searchByUserID.setMaximumSize(QSize(16777215, 35))
         self.lineEdit_searchByUserID.setStyleSheet(u"QLineEdit{\n"
@@ -736,6 +772,11 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.page_pedidos)
         self.page_detallesPedidos = QWidget()
         self.page_detallesPedidos.setObjectName(u"page_detallesPedidos")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.page_detallesPedidos.sizePolicy().hasHeightForWidth())
+        self.page_detallesPedidos.setSizePolicy(sizePolicy1)
         self.plates_management_3 = QLabel(self.page_detallesPedidos)
         self.plates_management_3.setObjectName(u"plates_management_3")
         self.plates_management_3.setGeometry(QRect(20, 50, 261, 41))
@@ -793,7 +834,7 @@ class Ui_MainWindow(object):
         self.plates_tittle_3.setFont(font6)
         self.lineEdit_searchByOrderID = QLineEdit(self.page_detallesPedidos)
         self.lineEdit_searchByOrderID.setObjectName(u"lineEdit_searchByOrderID")
-        self.lineEdit_searchByOrderID.setGeometry(QRect(530, 100, 271, 35))
+        self.lineEdit_searchByOrderID.setGeometry(QRect(740, 110, 271, 35))
         self.lineEdit_searchByOrderID.setMinimumSize(QSize(0, 35))
         self.lineEdit_searchByOrderID.setMaximumSize(QSize(16777215, 35))
         self.lineEdit_searchByOrderID.setStyleSheet(u"QLineEdit{\n"
@@ -816,7 +857,9 @@ class Ui_MainWindow(object):
         __qtablewidgetitem30 = QTableWidgetItem()
         self.tabla_ordersDetails.setHorizontalHeaderItem(4, __qtablewidgetitem30)
         self.tabla_ordersDetails.setObjectName(u"tabla_ordersDetails")
-        self.tabla_ordersDetails.setGeometry(QRect(20, 160, 781, 531))
+        self.tabla_ordersDetails.setGeometry(QRect(20, 160, 990, 640))
+        sizePolicy.setHeightForWidth(self.tabla_ordersDetails.sizePolicy().hasHeightForWidth())
+        self.tabla_ordersDetails.setSizePolicy(sizePolicy)
         self.tabla_ordersDetails.setStyleSheet(u"QHeaderView::section{\n"
 "	font-weight: bold;\n"
 "	background-color: black;\n"
@@ -825,14 +868,23 @@ class Ui_MainWindow(object):
 "\n"
 "QTableWidget{\n"
 "	alternate-background-color: #B0EDFB;\n"
-"	background-color: #F4F9FA;\n"
+"	background-color: #FFFFFF;\n"
+"}\n"
+"\n"
+"QTableWidget::item, QTableView::item {\n"
+"    background-color: #FFFFFF; \n"
+"}\n"
+"\n"
+"QTableWidget::item:alternate, QTableView::item:alternate {\n"
+"    background-color: #F2F2F2; \n"
 "}")
         self.tabla_ordersDetails.setAlternatingRowColors(True)
+        self.tabla_ordersDetails.setSelectionMode(QAbstractItemView.SelectionMode.NoSelection)
         self.tabla_ordersDetails.setTextElideMode(Qt.TextElideMode.ElideMiddle)
         self.tabla_ordersDetails.setColumnCount(5)
         self.tabla_ordersDetails.horizontalHeader().setVisible(True)
         self.tabla_ordersDetails.horizontalHeader().setCascadingSectionResizes(False)
-        self.tabla_ordersDetails.horizontalHeader().setDefaultSectionSize(149)
+        self.tabla_ordersDetails.horizontalHeader().setDefaultSectionSize(200)
         self.tabla_ordersDetails.horizontalHeader().setProperty(u"showSortIndicator", False)
         self.tabla_ordersDetails.horizontalHeader().setStretchLastSection(True)
         self.tabla_ordersDetails.verticalHeader().setVisible(False)
@@ -865,7 +917,8 @@ class Ui_MainWindow(object):
         __qtablewidgetitem36 = QTableWidgetItem()
         self.tabla_delivery.setHorizontalHeaderItem(5, __qtablewidgetitem36)
         self.tabla_delivery.setObjectName(u"tabla_delivery")
-        self.tabla_delivery.setGeometry(QRect(20, 160, 781, 531))
+        self.tabla_delivery.setGeometry(QRect(20, 160, 990, 640))
+        self.tabla_delivery.setMinimumSize(QSize(0, 0))
         self.tabla_delivery.setStyleSheet(u"QHeaderView::section{\n"
 "	font-weight: bold;\n"
 "	background-color: black;\n"
@@ -874,20 +927,37 @@ class Ui_MainWindow(object):
 "\n"
 "QTableWidget{\n"
 "	alternate-background-color: #B0EDFB;\n"
-"	background-color: #F4F9FA;\n"
+"	background-color: #FFFFFF;\n"
+"}\n"
+"\n"
+"QTableWidget::item, QTableView::item {\n"
+"    background-color: #FFFFFF; \n"
+"}\n"
+"\n"
+"QTableWidget::item:alternate, QTableView::item:alternate {\n"
+"    background-color: #F2F2F2; \n"
 "}")
+        self.tabla_delivery.setAutoScrollMargin(16)
         self.tabla_delivery.setAlternatingRowColors(True)
+        self.tabla_delivery.setSelectionMode(QAbstractItemView.SelectionMode.NoSelection)
+        self.tabla_delivery.setShowGrid(True)
+        self.tabla_delivery.setWordWrap(True)
+        self.tabla_delivery.setCornerButtonEnabled(True)
+        self.tabla_delivery.setColumnCount(6)
         self.tabla_delivery.horizontalHeader().setVisible(True)
-        self.tabla_delivery.horizontalHeader().setCascadingSectionResizes(False)
-        self.tabla_delivery.horizontalHeader().setDefaultSectionSize(110)
+        self.tabla_delivery.horizontalHeader().setCascadingSectionResizes(True)
+        self.tabla_delivery.horizontalHeader().setMinimumSectionSize(32)
+        self.tabla_delivery.horizontalHeader().setDefaultSectionSize(160)
+        self.tabla_delivery.horizontalHeader().setHighlightSections(True)
         self.tabla_delivery.horizontalHeader().setProperty(u"showSortIndicator", False)
         self.tabla_delivery.horizontalHeader().setStretchLastSection(True)
         self.tabla_delivery.verticalHeader().setVisible(False)
         self.tabla_delivery.verticalHeader().setCascadingSectionResizes(False)
+        self.tabla_delivery.verticalHeader().setHighlightSections(True)
         self.tabla_delivery.verticalHeader().setStretchLastSection(False)
         self.lineEdit_searchBy = QLineEdit(self.page_repartidores)
         self.lineEdit_searchBy.setObjectName(u"lineEdit_searchBy")
-        self.lineEdit_searchBy.setGeometry(QRect(530, 100, 271, 35))
+        self.lineEdit_searchBy.setGeometry(QRect(740, 110, 271, 35))
         self.lineEdit_searchBy.setMinimumSize(QSize(0, 35))
         self.lineEdit_searchBy.setMaximumSize(QSize(16777215, 35))
         self.lineEdit_searchBy.setStyleSheet(u"QLineEdit{\n"
@@ -944,21 +1014,18 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.btn_exportPDF)
 
         self.stackedWidget.addWidget(self.page_repartidores)
-        self.header = QWidget(self.centralwidget)
-        self.header.setObjectName(u"header")
-        self.header.setGeometry(QRect(360, 10, 881, 81))
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Just Meat App", None))
         self.btn_home.setText("")
         self.btn_users.setText("")
         self.btn_querys.setText("")

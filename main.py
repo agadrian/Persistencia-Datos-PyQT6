@@ -2,18 +2,24 @@ from login import *
 from register import RegisterWindow
 from home import HomeWindow
 import sys
+from PyQt6.QtCore import Qt, QPoint
+from PyQt6 import uic  
+from PyQt6.QtGui import QIcon
 
 
 class MainApp(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Aplicación CRUD")
-        #self.setGeometry(100, 100, 800, 600)
+        self.setWindowTitle("Just Meat App")
+        self.setWindowIcon(QIcon("ui/res/logo.png"))
+        
         
         # Crear stack para navegar 
         self.stack = QStackedWidget()
         self.setCentralWidget(self.stack)
         self.stack.setSizePolicy(self.sizePolicy())
+
+        
 
 
         # Instanciar clases
@@ -50,5 +56,6 @@ class MainApp(QMainWindow):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = MainApp()
+    window.setFixedSize(850, 700)
     window.show()
     app.exec()

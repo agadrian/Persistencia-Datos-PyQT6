@@ -19,10 +19,13 @@ class RegisterWindow(QWidget):
         ruta_ui = os.path.join(os.path.dirname(__file__), "ui", "pages", "Register.ui")
         uic.loadUi(ruta_ui, self)
 
-        self.setFixedSize(self.size())
+        self.setFixedSize(850, 700)
 
         # Conectar boton
         self.btn_singup.clicked.connect(self.register)
+
+        self.label_singup.linkActivated.connect(lambda: self.main_app.switch_to_login())
+
 
     
     def register(self):

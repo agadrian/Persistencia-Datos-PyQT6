@@ -33,9 +33,9 @@ class pedidosPage(QWidget):
 
         # Espacio de cada columna de la tabla
         self.tabla_orders.setColumnWidth(0, 40)
-        self.tabla_orders.setColumnWidth(1, 120)
-        self.tabla_orders.setColumnWidth(2, 130)
-        self.tabla_orders.setColumnWidth(3, 130)
+        self.tabla_orders.setColumnWidth(1, 180)
+        self.tabla_orders.setColumnWidth(2, 180)
+        self.tabla_orders.setColumnWidth(3, 180)
         self.tabla_orders.setColumnWidth(4, 35)
    
     

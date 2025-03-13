@@ -11,15 +11,17 @@ from detalles_pedido import detallesPedidoPage
 from repartidores import repartidoresPage
 from ui.pages.Home_ui import Ui_MainWindow
 from homePage import homePage
-
+from PyQt6.QtGui import QIcon
 
 
 
 class HomeWindow(QMainWindow):
     def __init__(self):
         super(HomeWindow, self).__init__()
+        self.setWindowTitle("Just Meat App")
+        self.setWindowIcon(QIcon("ui/res/logo.png"))
         
-        # Ruta del .ui (home.ui (julio))
+      
         ruta_ui = os.path.join(os.path.dirname(__file__), "ui", "pages", "Home.ui")
         uic.loadUi(ruta_ui, self)
 

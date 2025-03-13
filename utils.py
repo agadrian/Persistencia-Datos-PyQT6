@@ -81,6 +81,22 @@ class Edit_delete_widget_function(QWidget):
         self.edit_button.setIcon(icon)
         self.edit_button.clicked.connect(self.edit_clicked) # Abrir el dialog
 
+        self.edit_button.setStyleSheet("""
+            QPushButton {
+                border-radius: 8px;
+                background-color: transparent;
+                border: 1px solid #2ecc71;
+                padding: 5px;
+                color: #2ecc71;
+            }
+            QPushButton:hover {
+                background-color: rgba(46, 204, 113, 0.1);
+            }
+            QPushButton:pressed {
+                background-color: rgba(46, 204, 113, 0.2);
+            }
+        """)
+
 
         # Boton delete
         self.delete_button = QPushButton("", self)
@@ -88,6 +104,25 @@ class Edit_delete_widget_function(QWidget):
         icon2 = QIcon("ui/res/borrar.png")
         self.delete_button.setIcon(icon2)
         self.delete_button.clicked.connect(self.delete_clicked)
+
+
+        self.delete_button.setStyleSheet("""
+            QPushButton {
+                border-radius: 8px;
+                background-color: transparent;
+                border: 1px solid #e74c3c;
+                padding: 5px;
+                color: #e74c3c;
+            }
+            QPushButton:hover {
+                background-color: rgba(231, 76, 60, 0.1);
+            }
+            QPushButton:pressed {
+                background-color: rgba(231, 76, 60, 0.2);
+            }
+            """)
+
+
 
         #self.edit_button.setFlat(True)
         #self.delete_button.setFlat(True)

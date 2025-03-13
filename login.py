@@ -17,11 +17,12 @@ class LoginWindow(QWidget):
         ruta_ui = os.path.join(os.path.dirname(__file__), "ui", "pages", "Login.ui")
         uic.loadUi(ruta_ui, self)
 
-        self.setFixedSize(self.size())
+        self.setFixedSize(850, 700)
 
         # Conectar botones
         self.btn_login.clicked.connect(self.login)
         self.label_singup.linkActivated.connect(lambda: self.main_app.switch_to_register())
+
 
 
     def login(self):

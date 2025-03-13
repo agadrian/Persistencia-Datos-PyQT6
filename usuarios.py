@@ -27,11 +27,11 @@ class usuariosPage(QWidget):
 
         # Espacio de cada columna de la tabla
         self.tabla_users.setColumnWidth(0, 40)
-        self.tabla_users.setColumnWidth(1, 100)
-        self.tabla_users.setColumnWidth(2, 130)
-        self.tabla_users.setColumnWidth(3, 130)
-        self.tabla_users.setColumnWidth(4, 100)
-        self.tabla_users.setColumnWidth(5, 100)
+        self.tabla_users.setColumnWidth(1, 140)
+        self.tabla_users.setColumnWidth(2, 170)
+        self.tabla_users.setColumnWidth(3, 170)
+        self.tabla_users.setColumnWidth(4, 120)
+        self.tabla_users.setColumnWidth(5, 120)
         self.tabla_users.setColumnWidth(6, 100)
     
 

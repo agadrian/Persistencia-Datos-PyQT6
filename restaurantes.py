@@ -36,9 +36,9 @@ class restaurantesPage(QWidget):
         self.tabla_restaurants.setColumnWidth(1, 100)
         self.tabla_restaurants.setColumnWidth(2, 130)
         self.tabla_restaurants.setColumnWidth(3, 130)
-        self.tabla_restaurants.setColumnWidth(4, 80)
-        self.tabla_restaurants.setColumnWidth(5, 80)
-        self.tabla_restaurants.setColumnWidth(6, 80)
+        self.tabla_restaurants.setColumnWidth(4, 120)
+        self.tabla_restaurants.setColumnWidth(5, 100)
+        self.tabla_restaurants.setColumnWidth(6, 100)
         self.tabla_restaurants.setColumnWidth(7, 35)
 
 

@@ -32,10 +32,10 @@ class platosPage(QWidget):
 
         # Espacio de cada columna de la tabla
         self.tabla_plates.setColumnWidth(0, 40)
-        self.tabla_plates.setColumnWidth(1, 100)
-        self.tabla_plates.setColumnWidth(2, 130)
-        self.tabla_plates.setColumnWidth(3, 130)
-        self.tabla_plates.setColumnWidth(4, 100)
+        self.tabla_plates.setColumnWidth(1, 170)
+        self.tabla_plates.setColumnWidth(2, 170)
+        self.tabla_plates.setColumnWidth(3, 170)
+        self.tabla_plates.setColumnWidth(4, 170)
         self.tabla_plates.setColumnWidth(5, 50)
        
 
