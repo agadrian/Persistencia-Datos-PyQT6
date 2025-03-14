@@ -6,6 +6,7 @@ from PyQt6.QtGui import *
 from PyQt6 import uic   
 from dialogs.UpdateUserDialog import UpdateUserDialog
 import os
+import sys
 
 
 def comprobaciones_input(username, email, phone, password= None, password2 = None):
@@ -77,7 +78,7 @@ class Edit_delete_widget_function(QWidget):
         # Boton edit
         self.edit_button = QPushButton("", self)
         self.edit_button.setFixedSize(60,30)
-        icon = QIcon("ui/res/editar.png")
+        icon = QIcon(resource_path("ui/res/editar.png"))
         self.edit_button.setIcon(icon)
         self.edit_button.clicked.connect(self.edit_clicked) # Abrir el dialog
 
@@ -101,7 +102,7 @@ class Edit_delete_widget_function(QWidget):
         # Boton delete
         self.delete_button = QPushButton("", self)
         self.delete_button.setFixedSize(60,30)
-        icon2 = QIcon("ui/res/borrar.png")
+        icon2 = QIcon(resource_path("ui/res/borrar.png"))
         self.delete_button.setIcon(icon2)
         self.delete_button.clicked.connect(self.delete_clicked)
 
@@ -121,11 +122,6 @@ class Edit_delete_widget_function(QWidget):
                 background-color: rgba(231, 76, 60, 0.2);
             }
             """)
-
-
-
-        #self.edit_button.setFlat(True)
-        #self.delete_button.setFlat(True)
 
 
         layout.addWidget(self.edit_button)
@@ -148,3 +144,13 @@ class Edit_delete_widget_function(QWidget):
         self.delete_fun(self.item_id, self.item_name)
 
 
+
+def resource_path(relative_path):
+    try:
+        
+        base_path = sys._MEIPASS
+    except Exception:
+        
+        base_path = os.path.abspath(".")
+    
+    return os.path.join(base_path, relative_path).replace("\\", "/")

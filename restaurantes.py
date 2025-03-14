@@ -45,7 +45,9 @@ class restaurantesPage(QWidget):
     def export_pdf(self):
         pdf = PDFGenerator()
         pdf.generate_table_from_qtwidget(self.tabla_restaurants, title="Informe de datos de la tabla")
-        pdf.save("Informe_Restaurantes.pdf")
+        pdf_path = resource_path("Informe_Restaurantes.pdf")
+        pdf.save(pdf_path)
+        
 
 
     # Abre el dialogo para crear nuevo restaurante
@@ -58,6 +60,8 @@ class restaurantesPage(QWidget):
     def load_restaurants(self):
         try:
             conn, cursor = get_db_connection()
+            if conn is None or cursor is None:
+                raise Exception("No se pudo conectar a la base de datos.")
 
             self.tabla_restaurants.setRowCount(0)
 
@@ -87,7 +91,8 @@ class restaurantesPage(QWidget):
         except Exception as e:
             QMessageBox.warning(self.home, "Error", f"Error cargando restaurantes: {str(e)}")
         finally:
-            close_db_connection(conn)
+            if conn:
+                close_db_connection(conn)
 
     
 
@@ -108,6 +113,8 @@ class restaurantesPage(QWidget):
         # SQL
         try:
             conn, cursor = get_db_connection()
+            if conn is None or cursor is None:
+                raise Exception("No se pudo conectar a la base de datos.")
 
             cursor.execute("SELECT * FROM restaurantes WHERE nombre LIKE ? OR telefono LIKE ? OR categoria LIKE ?", (f"%{input}%", f"%{input}%", f"%{input}%"))
 
@@ -123,8 +130,6 @@ class restaurantesPage(QWidget):
                     self.tabla_restaurants.setItem(row_index, col_index, item)
 
                 # Crear los dos iconos finales de editar y eliminar (clase ubicada en utils.py)
-                #edit_delete_widget = Edit_delete_widget_function(self, row_index, row_data)
-
                 edit_delete_widget = Edit_delete_widget_function(self, row_index, row_data, UpdateRestaurantDialog, self.load_restaurants, self.delete_restaurant)
 
                 # Establecer los botones
@@ -134,7 +139,8 @@ class restaurantesPage(QWidget):
         except Exception as e:
             QMessageBox.warning(self.home, "Error", f"Error: {str(e)}")
         finally:
-            close_db_connection(conn)
+            if conn:
+                close_db_connection(conn)
 
 
 
@@ -153,6 +159,9 @@ class restaurantesPage(QWidget):
         if reply == QMessageBox.StandardButton.Yes:
             try:
                 conn, cursor = get_db_connection()
+                if conn is None or cursor is None:
+                    raise Exception("No se pudo conectar a la base de datos.")
+
                 cursor.execute("DELETE FROM restaurantes WHERE id = ?", (restaurant_id,))
                 conn.commit()
 
@@ -164,4 +173,5 @@ class restaurantesPage(QWidget):
                 QMessageBox.warning(self.home, "Error", f"Error al eliminar: {str(e)}")
 
             finally:
-                close_db_connection(conn)
+                if conn:
+                    close_db_connection(conn)

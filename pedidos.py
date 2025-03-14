@@ -55,6 +55,8 @@ class pedidosPage(QWidget):
     def load_orders(self):
         try:
             conn, cursor = get_db_connection()
+            if conn is None or cursor is None:
+                raise Exception("No se pudo conectar a la base de datos.")
 
             self.tabla_orders.setRowCount(0)
 
@@ -84,7 +86,8 @@ class pedidosPage(QWidget):
         except Exception as e:
             QMessageBox.warning(self.home, "Error", f"Error cargando pedidos: {str(e)}")
         finally:
-            close_db_connection(conn)
+            if conn:
+                close_db_connection(conn)
 
     
 
@@ -105,6 +108,8 @@ class pedidosPage(QWidget):
         # SQL
         try:
             conn, cursor = get_db_connection()
+            if conn is None or cursor is None:
+                raise Exception("No se pudo conectar a la base de datos.")
 
             cursor.execute("SELECT * FROM pedidos WHERE id_cliente LIKE ? ", (f"%{input}%",))
 
@@ -131,7 +136,8 @@ class pedidosPage(QWidget):
         except Exception as e:
             QMessageBox.warning(self.home, "Error", f"Error: {str(e)}")
         finally:
-            close_db_connection(conn)
+            if conn:
+                close_db_connection(conn)
 
 
 
@@ -150,6 +156,9 @@ class pedidosPage(QWidget):
         if reply == QMessageBox.StandardButton.Yes:
             try:
                 conn, cursor = get_db_connection()
+                if conn is None or cursor is None:
+                    raise Exception("No se pudo conectar a la base de datos.")
+
                 cursor.execute("DELETE FROM pedidos WHERE id = ?", (order_id,))
                 conn.commit()
 
@@ -161,4 +170,5 @@ class pedidosPage(QWidget):
                 QMessageBox.warning(self.home, "Error", f"Error al eliminar: {str(e)}")
 
             finally:
-                close_db_connection(conn)
+                if conn:
+                    close_db_connection(conn)

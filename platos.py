@@ -42,7 +42,8 @@ class platosPage(QWidget):
     def export_pdf(self):
         pdf = PDFGenerator()
         pdf.generate_table_from_qtwidget(self.tabla_plates, title="Informe de datos de la tabla")
-        pdf.save("Informe_Platos.pdf")
+        pdf_path = resource_path("Informe_Platos.pdf")
+        pdf.save(pdf_path)
 
     # Abre el dialogo para crear nuevo plato
     def open_dialog(self):
@@ -54,6 +55,8 @@ class platosPage(QWidget):
     def load_plates(self):
         try:
             conn, cursor = get_db_connection()
+            if conn is None or cursor is None:
+                raise Exception("No se pudo conectar a la base de datos.")
 
             self.tabla_plates.setRowCount(0)
 
@@ -63,7 +66,7 @@ class platosPage(QWidget):
             cursor.execute("SELECT id, nombre, precio, descripcion, id_restaurante FROM platos")
             plates = cursor.fetchall()
 
-            print(plates) # TODO: BORRAR
+            print(plates)
 
 
             for row_index, row_data in enumerate(plates):
@@ -84,7 +87,8 @@ class platosPage(QWidget):
         except Exception as e:
             QMessageBox.warning(self.home, "Error", f"Error cargando platos: {str(e)}")
         finally:
-            close_db_connection(conn)
+            if conn:
+                close_db_connection(conn)
 
     
 
@@ -106,7 +110,7 @@ class platosPage(QWidget):
         try:
             conn, cursor = get_db_connection()
 
-            cursor.execute("SELECT * FROM plaos WHERE nombre LIKE ? OR descripcion LIKE ? ", (f"%{input}%", f"%{input}%"))
+            cursor.execute("SELECT * FROM platos WHERE nombre LIKE ? OR descripcion LIKE ? ", (f"%{input}%", f"%{input}%"))
 
             plates = cursor.fetchall()
         
@@ -131,7 +135,8 @@ class platosPage(QWidget):
         except Exception as e:
             QMessageBox.warning(self.home, "Error", f"Error: {str(e)}")
         finally:
-            close_db_connection(conn)
+            if conn:
+                close_db_connection(conn)
 
 
     
@@ -158,4 +163,5 @@ class platosPage(QWidget):
                 QMessageBox.warning(self.home, "Error", f"Error al eliminar: {str(e)}")
 
             finally:
-                close_db_connection(conn)
+                if conn:
+                    close_db_connection(conn)

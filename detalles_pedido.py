@@ -43,7 +43,8 @@ class detallesPedidoPage(QWidget):
     def export_pdf(self):
         pdf = PDFGenerator()
         pdf.generate_table_from_qtwidget(self.tabla_ordersDetails, title="Informe de datos de la tabla")
-        pdf.save("Informe_DetallesPedidos.pdf")
+        pdf_path = resource_path("Informe_DetallesPedidos.pdf")
+        pdf.save(pdf_path)
 
 
     # Abre el dialogo para crear nuevo detalles
@@ -56,6 +57,8 @@ class detallesPedidoPage(QWidget):
     def load_details(self):
         try:
             conn, cursor = get_db_connection()
+            if conn is None or cursor is None:
+                raise Exception("No se pudo conectar a la base de datos.")
 
             self.tabla_ordersDetails.setRowCount(0)
 
@@ -85,7 +88,8 @@ class detallesPedidoPage(QWidget):
         except Exception as e:
             QMessageBox.warning(self.home, "Error", f"Error cargando restaurantes: {str(e)}")
         finally:
-            close_db_connection(conn)
+            if conn:
+                close_db_connection(conn)
 
     
 
@@ -106,6 +110,8 @@ class detallesPedidoPage(QWidget):
         # SQL
         try:
             conn, cursor = get_db_connection()
+            if conn is None or cursor is None:
+                raise Exception("No se pudo conectar a la base de datos.")
 
             cursor.execute("SELECT * FROM detalles_pedido WHERE id_pedido  LIKE ?", (f"%{input}%",))
 
@@ -132,7 +138,8 @@ class detallesPedidoPage(QWidget):
         except Exception as e:
             QMessageBox.warning(self.home, "Error", f"Error: {str(e)}")
         finally:
-            close_db_connection(conn)
+            if conn:
+                close_db_connection(conn)
 
 
 
@@ -151,6 +158,9 @@ class detallesPedidoPage(QWidget):
         if reply == QMessageBox.StandardButton.Yes:
             try:
                 conn, cursor = get_db_connection()
+                if conn is None or cursor is None:
+                    raise Exception("No se pudo conectar a la base de datos.")
+
                 cursor.execute("DELETE FROM detalles_pedido WHERE id = ?", (detalles_id,))
                 conn.commit()
 
@@ -162,4 +172,5 @@ class detallesPedidoPage(QWidget):
                 QMessageBox.warning(self.home, "Error", f"Error al eliminar: {str(e)}")
 
             finally:
-                close_db_connection(conn)
+                if conn:
+                    close_db_connection(conn)

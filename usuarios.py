@@ -38,8 +38,9 @@ class usuariosPage(QWidget):
     def export_pdf(self):
         pdf = PDFGenerator()
         pdf.generate_table_from_qtwidget(self.tabla_users, title="Informe de datos de la tabla")
-        pdf.save("Informe_Usuarios.pdf")
-    
+        pdf_path = resource_path("Informe_Usuarios.pdf")
+        pdf.save(pdf_path)
+
 
     #~Abre el dialogo para crear nuevo user
     def open_dialog(self):
@@ -52,6 +53,8 @@ class usuariosPage(QWidget):
     def load_users(self):
         try:
             conn, cursor = get_db_connection()
+            if conn is None or cursor is None:
+                raise Exception("No se pudo conectar a la base de datos.")
 
             self.tabla_users.setRowCount(0)
 
@@ -81,7 +84,8 @@ class usuariosPage(QWidget):
         except Exception as e:
             QMessageBox.warning(self.home, "Error", f"Error cargando usuarios: {str(e)}")
         finally:
-            close_db_connection(conn)
+            if conn:
+                close_db_connection(conn)
 
 
     def search_by_email(self):
@@ -100,6 +104,8 @@ class usuariosPage(QWidget):
         # SQL
         try:
             conn, cursor = get_db_connection()
+            if conn is None or cursor is None:
+                raise Exception("No se pudo conectar a la base de datos.")
 
             cursor.execute("SELECT * FROM usuarios WHERE email LIKE ? OR nombre LIKE ?", (f"%{input}%", f"%{input}%"))
             users = cursor.fetchall()
@@ -123,7 +129,8 @@ class usuariosPage(QWidget):
         except Exception as e:
             QMessageBox.warning(self.home, "Error", f"Error: {str(e)}")
         finally:
-            close_db_connection(conn)
+            if conn:
+                close_db_connection(conn)
 
 
 
@@ -140,6 +147,9 @@ class usuariosPage(QWidget):
         if reply == QMessageBox.StandardButton.Yes:
             try:
                 conn, cursor = get_db_connection()
+                if conn is None or cursor is None:
+                    raise Exception("No se pudo conectar a la base de datos.")
+
                 cursor.execute("DELETE FROM usuarios WHERE id = ?", (user_id,))
                 conn.commit()
 
@@ -151,4 +161,5 @@ class usuariosPage(QWidget):
                 QMessageBox.warning(self.home, "Error", f"Error al eliminar: {str(e)}")
 
             finally:
-                close_db_connection(conn)
+                if conn:
+                    close_db_connection(conn)

@@ -2,9 +2,9 @@ from PyQt6.QtWidgets import *
 from PyQt6 import uic  
 from PyQt6.QtCore import QDir
 from PyQt6.QtGui import QPixmap, QPalette, QBrush
-
 import os
 import json
+from utils import resource_path
 
 from db_functions import *
 
@@ -17,7 +17,7 @@ class LoginWindow(QWidget):
         self.main_app = main_app
 
         # Ruta del .ui
-        ruta_ui = os.path.join(os.path.dirname(__file__), "ui", "pages", "Login.ui")
+        ruta_ui = resource_path("ui/pages/Login.ui")
         uic.loadUi(ruta_ui, self)
         self.setStyleSheet(self.styleSheet())
 
@@ -74,6 +74,9 @@ class LoginWindow(QWidget):
             
             mensaje = FIREBASE_ERRORS.get(error_msg, f"Error: {error_msg}")
             QMessageBox.warning(self, "Error", mensaje)
+        finally:
+            if conn:
+                close_db_connection(conn)
            
 
    

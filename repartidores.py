@@ -41,7 +41,9 @@ class repartidoresPage(QWidget):
     def export_pdf(self):
         pdf = PDFGenerator()
         pdf.generate_table_from_qtwidget(self.tabla_delivery, title="Informe de datos de la tabla")
-        pdf.save("Informe_Repartidores.pdf")
+        pdf_path = resource_path("Informe_Repartidores.pdf")
+        pdf.save(pdf_path)
+        
     
 
     # Abre el dialogo para crear nuevo repartidor
@@ -54,6 +56,8 @@ class repartidoresPage(QWidget):
     def load_delivery(self):
         try:
             conn, cursor = get_db_connection()
+            if conn is None or cursor is None:
+                raise Exception("No se pudo conectar a la base de datos.")
 
             self.tabla_delivery.setRowCount(0)
 
@@ -83,7 +87,8 @@ class repartidoresPage(QWidget):
         except Exception as e:
             QMessageBox.warning(self.home, "Error", f"Error cargando repartidores: {str(e)}")
         finally:
-            close_db_connection(conn)
+            if conn:
+                close_db_connection(conn)
 
     
 
@@ -104,6 +109,8 @@ class repartidoresPage(QWidget):
         # SQL
         try:
             conn, cursor = get_db_connection()
+            if conn is None or cursor is None:
+                raise Exception("No se pudo conectar a la base de datos.")
 
             cursor.execute("SELECT * FROM repartidores WHERE nif LIKE ? OR nombre LIKE ? ", (f"%{input}%", f"%{input}%"))
 
@@ -130,7 +137,8 @@ class repartidoresPage(QWidget):
         except Exception as e:
             QMessageBox.warning(self.home, "Error", f"Error: {str(e)}")
         finally:
-            close_db_connection(conn)
+            if conn:
+                close_db_connection(conn)
 
 
 
@@ -147,6 +155,9 @@ class repartidoresPage(QWidget):
         if reply == QMessageBox.StandardButton.Yes:
             try:
                 conn, cursor = get_db_connection()
+                if conn is None or cursor is None:
+                    raise Exception("No se pudo conectar a la base de datos.")
+            
                 cursor.execute("DELETE FROM repartidores WHERE id = ?", (delivery_id,))
                 conn.commit()
 
@@ -158,4 +169,5 @@ class repartidoresPage(QWidget):
                 QMessageBox.warning(self.home, "Error", f"Error al eliminar: {str(e)}")
 
             finally:
-                close_db_connection(conn)
+                if conn:
+                    close_db_connection(conn)

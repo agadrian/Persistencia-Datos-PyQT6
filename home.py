@@ -13,6 +13,7 @@ from ui.pages.Home_ui import Ui_MainWindow
 from reportsPage import reportsPage
 from PyQt6.QtGui import QIcon
 from querys import querysPage
+from utils import resource_path
 
 
 # Clase de la App general, pantalla completa principal despues del login o registro
@@ -20,7 +21,7 @@ class HomeWindow(QMainWindow):
     def __init__(self):
         super(HomeWindow, self).__init__()
         self.setWindowTitle("Just Meat App")
-        self.setWindowIcon(QIcon("ui/res/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("ui/res/logo.png")))
 
         QMainWindow.setFixedSize(self, 1304, 760)
         

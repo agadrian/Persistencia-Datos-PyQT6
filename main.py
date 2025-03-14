@@ -5,13 +5,20 @@ import sys
 from PyQt6.QtCore import Qt, QPoint
 from PyQt6 import uic  
 from PyQt6.QtGui import QIcon
+from utils import resource_path
+
+
+# pyinstaller --name "Calculadora_Suprema_2.0" --add-data "calculadora.ui;." --add-data "calculadora.png;." --add-data "cruz.png;." --windowed calculadora.py
+# TODO: Añadir el if conn: close_db_connection(conn) a todas las paginas
+# TODO: Añadir un mensaje al exportar pdf en cada pagina
+
 
 
 class MainApp(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Just Meat App")
-        self.setWindowIcon(QIcon("ui/res/logo.png"))
+        self.setWindowIcon(QIcon(resource_path("ui/res/logo.png")))
         
         
         # Crear stack para navegar 
@@ -20,10 +27,12 @@ class MainApp(QMainWindow):
         self.stack.setSizePolicy(self.sizePolicy())
 
         # Imagen de fondo, login  y register
-        self.stack.setStyleSheet("""
-            QStackedWidget {
-                background-image: url("C:/Users/adriag/Desktop/DAM/2DAM/DisInterfaces/python/ComidaDomicilioAdriag/ui/res/bg.png");
-            }
+        bg_path = resource_path("ui/res/bg.png")  # Convierte la ruta para problemas con pyinstaller
+        print(bg_path)
+        self.stack.setStyleSheet(f"""
+            QStackedWidget {{
+                background-image: url("{bg_path}");
+            }}
         """)
 
         
@@ -57,7 +66,6 @@ class MainApp(QMainWindow):
         self.mainWindow = HomeWindow()
         self.mainWindow.show()
 
-        #self.stack.setCurrentWidget(HomeWindow())
         
 
 if __name__ == "__main__":

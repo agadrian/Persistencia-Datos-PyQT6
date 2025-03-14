@@ -408,6 +408,8 @@ class reportsPage(QWidget):
         """ Ejecuta una consulta y devuelve los resultados. """
         try:
             conn, cursor = get_db_connection()
+            if conn is None or cursor is None:
+                raise Exception("No se pudo conectar a la base de datos.")
             cursor.execute(query, params)
             data = cursor.fetchall()
             headers = [desc[0] for desc in cursor.description]  
@@ -416,7 +418,8 @@ class reportsPage(QWidget):
             QMessageBox.warning(self.home, "Error", f"Error ejecutando la consulta: {str(e)}")
             return [], []
         finally:
-            close_db_connection(conn)
+            if conn:
+                close_db_connection(conn)
     
 
     def fetch_data(self, query, title, PDFName, emptyMsg, params = ()):
@@ -446,6 +449,6 @@ class reportsPage(QWidget):
             PDFName += ".pdf"
         pdf = PDFGenerator()
         pdf.generate_table_from_qtwidget(self.current_table, emptyMsg=emptyMsg, title=title)
-        pdf.save(PDFName)
+        pdf.save(resource_path(PDFName))
         QMessageBox.information(self.home, "Exito", f"PDF creado correctamente dentro de Informes")
     

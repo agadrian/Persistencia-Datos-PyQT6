@@ -202,7 +202,9 @@ class querysPage(QWidget):
             QMessageBox.warning(self, "Error", f"Error ejecutando la consulta: {str(e)}")
             return [], []
         finally:
-            close_db_connection(conn)
+            if conn:
+                close_db_connection(conn)
+            
 
 
 

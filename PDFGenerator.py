@@ -4,6 +4,7 @@ import sys
 from datetime import datetime
 import os
 import textwrap
+from utils import resource_path
 
 class PDFGenerator(FPDF):
     def __init__(self, orientation='L', unit='mm', format='A4'):
@@ -16,7 +17,8 @@ class PDFGenerator(FPDF):
 
     def header(self):
         # Logo empresa
-        self.image('ui/res/logo.png', 10, 12, 30, 30)
+        logo_path = resource_path('ui/res/logo.png')
+        self.image(logo_path, 10, 12, 30, 30)
         self.set_y(25)
 
         # Titulo empresa
@@ -127,7 +129,7 @@ class PDFGenerator(FPDF):
             self.set_y(y_pos + cell_height)
 
     def save(self, filename):
-        informes_dir = "Reports"
+        informes_dir = resource_path("Reports")
         if not os.path.exists(informes_dir):
             os.makedirs(informes_dir)
 

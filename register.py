@@ -73,5 +73,8 @@ class RegisterWindow(QWidget):
             
             mensaje = FIREBASE_ERRORS.get(error_msg, f"Error: {error_msg}")
             QMessageBox.warning(self, "Error", mensaje)
+        finally:
+            if conn:
+                close_db_connection(conn)
 
     

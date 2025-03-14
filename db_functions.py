@@ -3,6 +3,7 @@ import pyrebase
 import os
 from dotenv import load_dotenv
 
+
 load_dotenv()
 
 firebase_config = {
@@ -36,7 +37,9 @@ FIREBASE_ERRORS = {
 
 def get_db_connection():
     try:
-        conn = sqlite3.connect("database.db")  
+        from utils import resource_path
+        db_path = resource_path("database.db")
+        conn = sqlite3.connect(db_path)  
         cursor = conn.cursor() 
         return conn, cursor 
     except sqlite3.Error as e:
