@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1314</width>
-    <height>854</height>
+    <width>1304</width>
+    <height>767</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -29,7 +29,7 @@
       <x>0</x>
       <y>0</y>
       <width>231</width>
-      <height>881</height>
+      <height>921</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -37,211 +37,6 @@
 	background-color: rgb(0, 0, 0);
 }</string>
     </property>
-    <widget class="QWidget" name="layoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>90</y>
-       <width>175</width>
-       <height>863</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <property name="spacing">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>10</number>
-      </property>
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout">
-        <property name="spacing">
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QPushButton" name="btn_home">
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../res/home3.png</normaloff>../res/home3.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>80</width>
-            <height>77</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btn_users">
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../res/users4.jpg</normaloff>../res/users4.jpg</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>80</width>
-            <height>80</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btn_querys">
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../res/querys3.png</normaloff>../res/querys3.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>80</width>
-            <height>80</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btn_restaurants">
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../res/restaurants4.png</normaloff>../res/restaurants4.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>80</width>
-            <height>80</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btn_dishes">
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../res/dish3.png</normaloff>../res/dish3.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>80</width>
-            <height>80</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btn_delivery">
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../res/delivery3.png</normaloff>../res/delivery3.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>80</width>
-            <height>80</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btn_orders">
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../res/orders3.png</normaloff>../res/orders3.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>80</width>
-            <height>80</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btn_orderDetails">
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../res/orderDetails3.png</normaloff>../res/orderDetails3.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>80</width>
-            <height>80</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btn_exit">
-        <property name="autoFillBackground">
-         <bool>false</bool>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset>
-          <normaloff>../res/exit.jpg</normaloff>../res/exit.jpg</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>80</width>
-          <height>80</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
@@ -258,6 +53,280 @@
       <pixmap>../res/logo3.png</pixmap>
      </property>
     </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>130</y>
+       <width>211</width>
+       <height>621</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QPushButton" name="btn_reports">
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton:checked{
+	border-radius: 5px;
+	border: 1.5px solid white;
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../res/Reports.png</normaloff>../res/Reports.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>130</width>
+          <height>120</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_querys">
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton:checked{
+	border-radius: 5px;
+	border: 1.5px solid white;
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../res/querys3.png</normaloff>../res/querys3.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>150</width>
+          <height>120</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_users">
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton:checked{
+	border-radius: 5px;
+	border: 1.5px solid white;
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../res/users4.jpg</normaloff>../res/users4.jpg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>150</width>
+          <height>120</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_restaurants">
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton:checked{
+	border-radius: 5px;
+	border: 1.5px solid white;
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../res/restaurants4.png</normaloff>../res/restaurants4.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>150</width>
+          <height>120</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_dishes">
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton:checked{
+	border-radius: 5px;
+	border: 1.5px solid white;
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../res/dish3.png</normaloff>../res/dish3.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>150</width>
+          <height>150</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_delivery">
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton:checked{
+	border-radius: 5px;
+	border: 1.5px solid white;
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../res/delivery3.png</normaloff>../res/delivery3.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>150</width>
+          <height>120</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_orders">
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton:checked{
+	border-radius: 5px;
+	border: 1.5px solid white;
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../res/orders3.png</normaloff>../res/orders3.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>150</width>
+          <height>120</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_orderDetails">
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton:checked{
+	border-radius: 5px;
+	border: 1.5px solid white;
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../res/orderDetails3.png</normaloff>../res/orderDetails3.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>150</width>
+          <height>120</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
    <widget class="QWidget" name="main_screen" native="true">
     <property name="geometry">
@@ -265,7 +334,7 @@
       <x>250</x>
       <y>90</y>
       <width>1061</width>
-      <height>771</height>
+      <height>671</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -278,7 +347,7 @@
       <x>260</x>
       <y>30</y>
       <width>1031</width>
-      <height>841</height>
+      <height>721</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -309,9 +378,9 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>250</y>
+        <y>260</y>
         <width>1011</width>
-        <height>561</height>
+        <height>431</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -350,13 +419,13 @@ QTableWidget::item:alternate, QTableView::item:alternate {
        <bool>false</bool>
       </attribute>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>10</x>
         <y>50</y>
         <width>1118</width>
-        <height>191</height>
+        <height>211</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayoutQuerys">
@@ -757,11 +826,11 @@ QPushButton:hover {
        <string>Reports </string>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>210</y>
+        <y>180</y>
         <width>951</width>
         <height>311</height>
        </rect>
@@ -1141,6 +1210,26 @@ QPushButton:hover {
        </item>
       </layout>
      </widget>
+     <widget class="QLabel" name="label_18">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>100</y>
+        <width>351</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <italic>true</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>All Reports will be saved in ''Reports&quot; folder</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page_usuarios">
      <widget class="QTableWidget" name="tabla_users">
@@ -1149,7 +1238,7 @@ QPushButton:hover {
         <x>20</x>
         <y>160</y>
         <width>990</width>
-        <height>640</height>
+        <height>551</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1397,7 +1486,7 @@ QPushButton:hover {
         <x>20</x>
         <y>160</y>
         <width>990</width>
-        <height>640</height>
+        <height>541</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1648,7 +1737,7 @@ QPushButton:hover {
         <x>20</x>
         <y>160</y>
         <width>990</width>
-        <height>640</height>
+        <height>551</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1889,7 +1978,7 @@ QPushButton:hover {
         <x>20</x>
         <y>160</y>
         <width>990</width>
-        <height>640</height>
+        <height>551</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -2280,7 +2369,7 @@ QPushButton:hover {
         <x>20</x>
         <y>160</y>
         <width>990</width>
-        <height>640</height>
+        <height>551</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -2416,7 +2505,7 @@ QTableWidget::item:alternate, QTableView::item:alternate {
         <x>20</x>
         <y>160</y>
         <width>990</width>
-        <height>640</height>
+        <height>551</height>
        </rect>
       </property>
       <property name="minimumSize">

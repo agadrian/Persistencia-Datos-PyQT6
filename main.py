@@ -19,6 +19,13 @@ class MainApp(QMainWindow):
         self.setCentralWidget(self.stack)
         self.stack.setSizePolicy(self.sizePolicy())
 
+        # Imagen de fondo, login  y register
+        self.stack.setStyleSheet("""
+            QStackedWidget {
+                background-image: url("C:/Users/adriag/Desktop/DAM/2DAM/DisInterfaces/python/ComidaDomicilioAdriag/ui/res/bg.png");
+            }
+        """)
+
         
 
 

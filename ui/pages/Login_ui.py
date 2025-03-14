@@ -33,11 +33,7 @@ class Ui_LoginWindow(object):
         LoginWindow.setSizePolicy(sizePolicy)
         LoginWindow.setMinimumSize(QSize(850, 700))
         LoginWindow.setMaximumSize(QSize(850, 700))
-        LoginWindow.setStyleSheet(u"#LoginWindow {\n"
-"	border-image: url(:/ui/res/bg.png);\n"
-"	\n"
-"}\n"
-"\n"
+        LoginWindow.setStyleSheet(u"\n"
 "#centralWidget {\n"
 "	background-color: #FFFFFF;\n"
 "	border-radius: 10px;\n"

@@ -10,18 +10,19 @@ from pedidos import pedidosPage
 from detalles_pedido import detallesPedidoPage
 from repartidores import repartidoresPage
 from ui.pages.Home_ui import Ui_MainWindow
-from homePage import homePage
+from reportsPage import reportsPage
 from PyQt6.QtGui import QIcon
 from querys import querysPage
 
 
+# Clase de la App general, pantalla completa principal despues del login o registro
 class HomeWindow(QMainWindow):
     def __init__(self):
         super(HomeWindow, self).__init__()
         self.setWindowTitle("Just Meat App")
         self.setWindowIcon(QIcon("ui/res/logo.png"))
 
-        QMainWindow.setFixedSize(self, 1315, 855)
+        QMainWindow.setFixedSize(self, 1304, 760)
         
       
         ruta_ui = os.path.join(os.path.dirname(__file__), "ui", "pages", "Home.ui")
@@ -29,7 +30,7 @@ class HomeWindow(QMainWindow):
 
 
         ### Crear instancias de cada sub page del stack para que puedan acceder a los elementos de la UI   
-        self.home_page = homePage(self)
+        self.reports_page = reportsPage(self)
         self.users_page = usuariosPage(self)
         self.restaurantes_page = restaurantesPage(self)
         self.platos_page = platosPage(self)
@@ -45,14 +46,14 @@ class HomeWindow(QMainWindow):
         self.btn_users.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(2))
         self.btn_restaurants.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(3))
         self.btn_querys.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(0))
-        self.btn_home.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(1))
+        self.btn_reports.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(1))
         self.btn_dishes.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(4))
         self.btn_orders.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(5))
         self.btn_orderDetails.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(6))
         self.btn_delivery.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(7))
 
-        # Cargar la pagina inicial del stacked (será Home)
-        self.stackedWidget.setCurrentWidget(self.page_usuarios)
+        # Cargar la pagina inicial del stacked 
+        self.stackedWidget.setCurrentWidget(self.reports_page)
         
 
        

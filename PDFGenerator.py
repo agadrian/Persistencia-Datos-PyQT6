@@ -127,7 +127,7 @@ class PDFGenerator(FPDF):
             self.set_y(y_pos + cell_height)
 
     def save(self, filename):
-        informes_dir = "Informes"
+        informes_dir = "Reports"
         if not os.path.exists(informes_dir):
             os.makedirs(informes_dir)
 

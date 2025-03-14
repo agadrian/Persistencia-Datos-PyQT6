@@ -29,3 +29,8 @@ Por último, hay una página donde hacer una serie de consultas preestablecidas.
  - En cuanto a la creación de la base de datos, se puede hacer facilmente ejecutando este archivo [**`archivo.sql`**](ruta/al/archivo.sql).
  - Como extra se ha añadido una exportación de datos de las tablas completas a PDF mediante el uso de la librería FPDF
  
+
+## Empaquetar la App
+Haciendo uso de PyInstaller, usando este comando he empaquetado todo: 
+
+****

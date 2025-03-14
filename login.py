@@ -1,5 +1,8 @@
 from PyQt6.QtWidgets import * 
 from PyQt6 import uic  
+from PyQt6.QtCore import QDir
+from PyQt6.QtGui import QPixmap, QPalette, QBrush
+
 import os
 import json
 
@@ -16,12 +19,19 @@ class LoginWindow(QWidget):
         # Ruta del .ui
         ruta_ui = os.path.join(os.path.dirname(__file__), "ui", "pages", "Login.ui")
         uic.loadUi(ruta_ui, self)
+        self.setStyleSheet(self.styleSheet())
+
+    
 
         self.setFixedSize(850, 700)
+
 
         # Conectar botones
         self.btn_login.clicked.connect(self.login)
         self.label_singup.linkActivated.connect(lambda: self.main_app.switch_to_register())
+    
+
+    
 
 
 

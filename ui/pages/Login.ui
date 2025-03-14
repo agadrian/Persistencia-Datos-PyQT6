@@ -35,11 +35,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#LoginWindow {
-	border-image: url(:/ui/res/bg.png);
-	
-}
-
+   <string notr="true">
 #centralWidget {
 	background-color: #FFFFFF;
 	border-radius: 10px;
