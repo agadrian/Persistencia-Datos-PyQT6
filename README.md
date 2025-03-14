@@ -22,6 +22,8 @@ Por último, hay una página donde hacer una serie de consultas preestablecidas.
 ![diagrama](ui/res/diagrama.png)
 
 ## Usuarios en FireBase y Localmente
+
+- El usuario usado para testear ha sido: adriag con contraseña: 123123aA. Aún así se puede usar cualquiera, usan la misma contraseña en principio.
 ![usuarios](ui/res/usersScreenshoot.png)
 ![usuarios](ui/res/usersScreenshoot2.png)
 
