@@ -29,7 +29,7 @@ class UpdatePlateDialog(QDialog):
 
     def set_previus_data(self):
         self.lineEdit_name.setText(self.plate_data[1])  
-        self.lineEdit_price.setText(self.plate_data[2])  
+        self.lineEdit_price.setText(str(self.plate_data[2]) ) 
         self.lineEdit_description.setText(self.plate_data[3]) 
         self.lineEdit_restaurantID.setText(str(self.plate_data[4])) 
         

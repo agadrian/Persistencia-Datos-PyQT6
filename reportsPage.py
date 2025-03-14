@@ -365,7 +365,7 @@ class reportsPage(QWidget):
 
             """,
             title= f"Historial de pedidos de el usuario ID {self.lineEdit_allRestaurantDishes.text().strip()}",
-            PDFName= f"Hisorial pedidos usuario ID {self.lineEdit_allRestaurantDishes.text().strip()}",
+            PDFName= f"Historial_Pedidos_Usuario_ID{self.lineEdit_allRestaurantDishes.text().strip()}",
             params= (self.lineEdit_allRestaurantDishes.text().strip(),self.lineEdit_allRestaurantDishes.text().strip()),
             emptyMsg= "No hay datos disponibles para esta consulta."
             )

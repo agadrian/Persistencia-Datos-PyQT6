@@ -910,7 +910,7 @@ QPushButton:hover {
               </font>
              </property>
              <property name="text">
-              <string>Top 5 restraurants by sales Volume</string>
+              <string>Top 5 Restaurants by Sales Volume</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1129,7 +1129,7 @@ QPushButton:hover {
               </font>
              </property>
              <property name="text">
-              <string>Get all restaurant dishes</string>
+              <string>User Orders History</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1177,7 +1177,7 @@ QPushButton:hover {
               <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
              <property name="placeholderText">
-              <string>Restaurant ID...</string>
+              <string>User ID...</string>
              </property>
             </widget>
            </item>
