@@ -40,13 +40,19 @@ Archivo .SQL exportado de la base de datos: [**.SQL**](DataBase_Exported.sql)
 
 ## Utilidades
 
- - En cuanto a la creación de la base de datos, se puede hacer facilmente ejecutando este archivo [**`archivo.sql`**](ruta/al/archivo.sql).
- - Como extra se ha añadido una exportación de datos de las tablas completas a PDF mediante el uso de la librería FPDF
+- Login y registro de usuarios, insertandolos en Firebase y en SQLite (exceptuando datos como la contraseña, por temas de seguridad)
+- CRUD de la tabla usuarios, y 5 más.
+- Crear reportes de consultas, alguna de ella personalizada por medio de la ID de usuario.
+- Como extra se ha añadido una exportación de datos de las tablas completas individualmente a PDF mediante el uso de la librería FPDF.
+
  
 
 ## Empaquetar la App
 
-
 Haciendo uso de PyInstaller, usando este comando he empaquetado todo
 
 **pyinstaller --name "JustMeatApp" --add-data "database.db;." --add-data "ui/pages;ui/pages" --add-data "ui/dialogs;ui/dialogs" --add-data "ui/res;ui/res" --add-data "dialogs;dialogs" --add-data ".env;." --windowed main.py**
+
+La App empaquetada se encuentra en la siguiente carpeta del repositorio: [JustMeatApp](AppEmpaquetada)
+
+Los PDFS se exportan en la ruta [**_internal/Reports**](AppEmpaquetada/dist/JustMeatApp/_internal/Reports)
