@@ -16,21 +16,20 @@ from querys import querysPage
 from utils import resource_path
 
 
-# Clase de la App general, pantalla completa principal despues del login o registro
+# Clase que representa la pantalla principal una vez logeados. (Home.ui contiene toda la APP)
 class HomeWindow(QMainWindow):
     def __init__(self):
         super(HomeWindow, self).__init__()
         self.setWindowTitle("Just Meat App")
         self.setWindowIcon(QIcon(resource_path("ui/res/logo.png")))
-
         QMainWindow.setFixedSize(self, 1304, 760)
         
-      
-        ruta_ui = os.path.join(os.path.dirname(__file__), "ui", "pages", "Home.ui")
+        ruta_ui = resource_path("ui/pages/Home.ui") 
         uic.loadUi(ruta_ui, self)
 
 
-        ### Crear instancias de cada sub page del stack para que puedan acceder a los elementos de la UI   
+        ### Crear instancias de cada sub page del stack para que puedan acceder a los elementos de la UI. 
+        ### Se le pasa self para poder trabajar en las sublcases con elementos de esta.
         self.reports_page = reportsPage(self)
         self.users_page = usuariosPage(self)
         self.restaurantes_page = restaurantesPage(self)
@@ -41,7 +40,6 @@ class HomeWindow(QMainWindow):
         self.querysPage = querysPage(self)
        
 
-       
 
         # Conectar botones de navegación dentro del stackedWidget
         self.btn_users.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(2))
@@ -52,6 +50,7 @@ class HomeWindow(QMainWindow):
         self.btn_orders.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(5))
         self.btn_orderDetails.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(6))
         self.btn_delivery.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(7))
+
 
         # Cargar la pagina inicial del stacked 
         self.stackedWidget.setCurrentWidget(self.reports_page)

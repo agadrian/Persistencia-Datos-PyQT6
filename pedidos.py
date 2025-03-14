@@ -22,8 +22,6 @@ class pedidosPage(QWidget):
         self.tabla_orders = self.home.tabla_orders
 
     
-
-        
         # Cargar los pedidos
         self.load_orders()
 
@@ -43,6 +41,7 @@ class pedidosPage(QWidget):
         pdf = PDFGenerator()
         pdf.generate_table_from_qtwidget(self.tabla_orders, title="Informe de datos de la tabla")
         pdf.save("Informe_Pedidos.pdf")
+        QMessageBox.information(self.home, "Éxito", f"PDF Exportado correctamente")
 
 
     # Abre el dialogo para crear nuevo pedido

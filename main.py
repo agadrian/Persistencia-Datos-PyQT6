@@ -9,10 +9,7 @@ from utils import resource_path
 
 
 # pyinstaller --name "Calculadora_Suprema_2.0" --add-data "calculadora.ui;." --add-data "calculadora.png;." --add-data "cruz.png;." --windowed calculadora.py
-# TODO: Añadir el if conn: close_db_connection(conn) a todas las paginas
-# TODO: Añadir un mensaje al exportar pdf en cada pagina
-
-
+# pyinstaller --name "JustMeatApp" --add-data "database.db;." --add-data "ui/pages;ui/pages" --add-data "ui/dialogs;ui/dialogs" --add-data "ui/res;ui/res" --windowed main.py
 
 class MainApp(QMainWindow):
     def __init__(self):
@@ -35,8 +32,7 @@ class MainApp(QMainWindow):
             }}
         """)
 
-        
-
+    
 
         # Instanciar clases
         self.login_page = LoginWindow(self)
@@ -52,7 +48,7 @@ class MainApp(QMainWindow):
         self.stack.setCurrentWidget(self.login_page)
         
     
-
+    # Cambio de paginas, al regiser o al login
     def switch_to_register(self):
         self.stack.setCurrentWidget(self.register_page)
         

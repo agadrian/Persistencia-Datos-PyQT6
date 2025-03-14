@@ -44,6 +44,7 @@ class platosPage(QWidget):
         pdf.generate_table_from_qtwidget(self.tabla_plates, title="Informe de datos de la tabla")
         pdf_path = resource_path("Informe_Platos.pdf")
         pdf.save(pdf_path)
+        QMessageBox.information(self.home, "Éxito", f"PDF Exportado correctamente")
 
     # Abre el dialogo para crear nuevo plato
     def open_dialog(self):

@@ -11,7 +11,7 @@ import sys
 
 def comprobaciones_input(username, email, phone, password= None, password2 = None):
     
-        # Comprobaciones de los campos
+        # Comprobaciones de los campos para el login y registro
         
         if not username:
             raise Exception("El nombre de usuario no puede estar vacío.")
@@ -37,11 +37,12 @@ def comprobaciones_input(username, email, phone, password= None, password2 = Non
                 raise Exception("Las contraseñas no coinciden")
         
         
-
+# Validar el formato del email
 def validar_email(email):
     email_regex = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
     return re.match(email_regex, email) is not None
 
+# Validar password
 def validar_password(password):
     if len(password) < 8:
         return False
@@ -69,7 +70,7 @@ class Edit_delete_widget_function(QWidget):
         self.reload_fun = reload_fun # Recargar datos
         self.delete_fun = delete_fun # Eliminar dato
 
-        # Variable de la tupla+
+        # Variable de la tupla
         self.item_id = self.row_data[0]
         self.item_name = self.row_data[1]
 
@@ -145,6 +146,7 @@ class Edit_delete_widget_function(QWidget):
 
 
 
+# Para poder usar el PyInstaller y que detecte las rutas correctamente
 def resource_path(relative_path):
     try:
         

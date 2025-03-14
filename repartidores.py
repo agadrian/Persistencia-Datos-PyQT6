@@ -43,6 +43,7 @@ class repartidoresPage(QWidget):
         pdf.generate_table_from_qtwidget(self.tabla_delivery, title="Informe de datos de la tabla")
         pdf_path = resource_path("Informe_Repartidores.pdf")
         pdf.save(pdf_path)
+        QMessageBox.information(self.home, "Éxito", f"PDF Exportado correctamente")
         
     
 
@@ -66,7 +67,7 @@ class repartidoresPage(QWidget):
             
             cursor.execute("SELECT id, nif, nombre, id_pedido_asignado, vehiculo FROM repartidores")
             deliveries = cursor.fetchall()
-            print(deliveries) # TODO: BORRAR
+            print(deliveries) 
 
 
             for row_index, row_data in enumerate(deliveries):

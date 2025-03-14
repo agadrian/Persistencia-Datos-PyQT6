@@ -16,7 +16,6 @@ class detallesPedidoPage(QWidget):
         self.btn_addOrderDetails = self.home.btn_addOrderDetails
         self.btn_addOrderDetails.clicked.connect(self.open_dialog)
         
-
         self.btn_exportToPDF_4 = self.home.btn_exportToPDF_4
         self.btn_exportToPDF_4.clicked.connect(self.export_pdf)
 
@@ -39,12 +38,13 @@ class detallesPedidoPage(QWidget):
         self.tabla_ordersDetails.setColumnWidth(5, 50)
         
 
-
+    # Exportar PDF
     def export_pdf(self):
         pdf = PDFGenerator()
         pdf.generate_table_from_qtwidget(self.tabla_ordersDetails, title="Informe de datos de la tabla")
         pdf_path = resource_path("Informe_DetallesPedidos.pdf")
         pdf.save(pdf_path)
+        QMessageBox.information(self.home, "Éxito", f"PDF Exportado correctamente")
 
 
     # Abre el dialogo para crear nuevo detalles
@@ -67,7 +67,7 @@ class detallesPedidoPage(QWidget):
             
             cursor.execute("SELECT id, id_pedido, id_plato, cantidad FROM detalles_pedido")
             detalles_pedidos = cursor.fetchall()
-            print(detalles_pedidos) # TODO: BORRAR
+            print(detalles_pedidos) 
 
 
             for row_index, row_data in enumerate(detalles_pedidos):

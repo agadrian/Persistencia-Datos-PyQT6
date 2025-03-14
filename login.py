@@ -18,10 +18,7 @@ class LoginWindow(QWidget):
 
         # Ruta del .ui
         ruta_ui = resource_path("ui/pages/Login.ui")
-        uic.loadUi(ruta_ui, self)
-        self.setStyleSheet(self.styleSheet())
-
-    
+        uic.loadUi(ruta_ui, self)    
 
         self.setFixedSize(850, 700)
 
@@ -30,9 +27,6 @@ class LoginWindow(QWidget):
         self.btn_login.clicked.connect(self.login)
         self.label_singup.linkActivated.connect(lambda: self.main_app.switch_to_register())
     
-
-    
-
 
 
     def login(self):

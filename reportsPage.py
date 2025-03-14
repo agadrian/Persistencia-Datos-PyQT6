@@ -39,7 +39,7 @@ class reportsPage(QWidget):
 
         ## Ejecutar las consultas al hacer click al botón
 
-        # Query 1 - Análisis Cruzado de Usuarios, Platos y Categorías
+        # Query 1
         self.pushButton_crossAnalysis.clicked.connect(lambda: self.fetch_data(
             query= """
             WITH PlatosPorUsuario AS (
@@ -450,5 +450,5 @@ class reportsPage(QWidget):
         pdf = PDFGenerator()
         pdf.generate_table_from_qtwidget(self.current_table, emptyMsg=emptyMsg, title=title)
         pdf.save(resource_path(PDFName))
-        QMessageBox.information(self.home, "Exito", f"PDF creado correctamente dentro de Informes")
+        QMessageBox.information(self.home, "Exito", f"PDF creado correctamente en la carpeta 'Reports'")
     

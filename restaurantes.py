@@ -47,6 +47,7 @@ class restaurantesPage(QWidget):
         pdf.generate_table_from_qtwidget(self.tabla_restaurants, title="Informe de datos de la tabla")
         pdf_path = resource_path("Informe_Restaurantes.pdf")
         pdf.save(pdf_path)
+        QMessageBox.information(self.home, "Éxito", f"PDF Exportado correctamente")
         
 
 

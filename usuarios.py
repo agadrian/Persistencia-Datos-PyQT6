@@ -40,9 +40,10 @@ class usuariosPage(QWidget):
         pdf.generate_table_from_qtwidget(self.tabla_users, title="Informe de datos de la tabla")
         pdf_path = resource_path("Informe_Usuarios.pdf")
         pdf.save(pdf_path)
+        QMessageBox.information(self.home, "Éxito", f"PDF Exportado correctamente")
 
 
-    #~Abre el dialogo para crear nuevo user
+    # Abre el dialogo para crear nuevo user
     def open_dialog(self):
         dialog = UserDialog(self.home)
         dialog.exec()
@@ -92,10 +93,10 @@ class usuariosPage(QWidget):
         # Limpiar la tabla
         self.tabla_users.setRowCount(0)
 
-        # Input del lineedit
+        # Input del lineEdit
         input = self.home.lineEdit_search_email.text().strip()
 
-        # Si n hay nada escrito, recargar la tabla con todo los datos
+        # Si no hay nada escrito, recargar la tabla con todo los datos
         if not input:
             self.load_users()
             return

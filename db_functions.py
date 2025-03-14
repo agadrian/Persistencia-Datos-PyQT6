@@ -3,9 +3,10 @@ import pyrebase
 import os
 from dotenv import load_dotenv
 
-
+# Cargar el .env
 load_dotenv()
 
+# Configuracion Firebase
 firebase_config = {
     "apiKey": os.getenv("FIREBASE_API_KEY"),
     "authDomain": os.getenv("FIREBASE_AUTH_DOMAIN"),
@@ -21,6 +22,7 @@ firebase = pyrebase.initialize_app(firebase_config)
 auth = firebase.auth()
 
 
+# Diccionario de errores de Fireabse
 FIREBASE_ERRORS = {
     "EMAIL_NOT_FOUND": "Este correo no está registrado.",
     "INVALID_PASSWORD": "La contraseña ingresada es incorrecta.",
@@ -34,7 +36,7 @@ FIREBASE_ERRORS = {
 }
 
 
-
+# Obtener conexion de la base de datos
 def get_db_connection():
     try:
         from utils import resource_path
@@ -46,7 +48,7 @@ def get_db_connection():
         print(f"Error de conexión con la base de datos: {e}")
         return None, None
 
-
+# Cerrar la conexion de la base de datos
 def close_db_connection(conn):
     try:
         if conn:
