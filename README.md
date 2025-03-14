@@ -53,5 +53,6 @@ Haciendo uso de PyInstaller, usando este comando he empaquetado todo
 
 **pyinstaller --name "JustMeatApp" --add-data "database.db;." --add-data "ui/pages;ui/pages" --add-data "ui/dialogs;ui/dialogs" --add-data "ui/res;ui/res" --add-data "dialogs;dialogs" --add-data ".env;." --windowed main.py**
 
-La App empaquetada se encuentra en la siguiente carpeta del repositorio: [JustMeatApp]()
-Los PDFS se exportan en la ruta **_internal/Reports**
+La App empaquetada se encuentra en la siguiente carpeta del repositorio: [JustMeatApp](AppEmpaquetada)
+
+Los PDFS se exportan en la ruta [**_internal/Reports**](AppEmpaquetada/dist/JustMeatApp/_internal/Reports)
